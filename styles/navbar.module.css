@@ -1,0 +1,19 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    justify-self: flex-start;
+    margin-left: 0.3em;
+}
+
+.link {
+    margin-right: 0.3em;
+}
