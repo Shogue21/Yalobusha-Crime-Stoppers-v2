@@ -1,8 +1,12 @@
-# Workflow 
+# Project Description and Motivation: 
 
+# Prior Art
+
+# Workflow 
 
 # Deployment Workflow / Services
 
+# Timeline
 
 # Technology Stack
 
