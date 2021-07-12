@@ -1,6 +1,11 @@
-function Home() {
+const index = () => {
   return (
-<h1></h1>
+    <div>
+      <h3>Home Page</h3>
+    </div>
   )
 }
+
+export default index
+
 
