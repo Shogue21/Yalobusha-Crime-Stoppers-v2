@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+
+.h1{
+    font-weight: 600;
+}
+
+.container {
+    margin-left: 10px;
+}
+
+.AboutUsContent{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: large;
+}
+
+.howTo{
+    font-weight: 500;
+}
+
+.tipProcess{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: large;   
+}
+
+.community{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: large;   
+}
