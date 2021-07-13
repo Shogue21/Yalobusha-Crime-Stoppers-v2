@@ -1,23 +1,35 @@
 # Project Description and Motivation: 
-The official Yalobusha County Crime Stoppers website. On this website, people can find information regarding Crime Stoppers. The motivation for this project is for a real world client.
+The official Yalobusha County Crime Stoppers website. On this website, people can find information regarding Crime Stoppers. The motivation for this project is for a real world client. Our client wants this website because the state told them they needed one to keep their status as Crime Stoppers. They also wanted more ways for the community to be informed.
 
 # Prior Art
-We've looked at multiple Crime Stoppers website for insight on developing the website. This static website built with Next.js which allows for a fast and easy development process.   
+We've looked at multiple Crime Stoppers website for insight on developing the website.  
 https://www.crime-stoppers.com   
 https://www.seacoastcrimestoppers.com    
 http://mscoastcrimestoppers.com   
 
 # Workflow 
-- Information about Crime Stoppers
-- Reinfornce the idea of guaranteed anonymity
-- Explain cash reward system
-- Stress civic responsibility
-- Explain the proccess of submiting a tip   
+- Homepage
+  - Users should know they are in the right place
+  - Navigation through the site should be clear
+  
+- About Page
+  - Users should know what Crime Stoppers is about
+  - Users should know the entire process of submitting a tip and collecting rewards
+  - Civic responsibility should be emphasized
 
-- New Version
+- Contact Footer
+  - Tip line should be shown
+  - Facebook and other resources should be linked
+  
+- Alternative Version
   - Tip System
+    - User should be able to submit an anonymous tip
+    - Generate ID for a user to review a tip
   - Newsletter / News
+    - Should give local news
+    - Recent arrests
   - Stats
+    - Should list tips given to arrest ratio
 
 
 <!-- # Deployment Workflow / Services -->
@@ -25,26 +37,20 @@ http://mscoastcrimestoppers.com
 # Timeline
 - Week 1
   - Outline Basic Content
-    - Basic Information (What is Crime Stoppers)
-    - Contact Information
-    - How to submit a tip
-    - How the process works
-    - Anonymity
-  - Basic Styling Completed
-    - Font, Font-Size
-    - Navbar
-    - Homepage
+    - Homepage (Seth)
+    - Contact Information (Travis)
+    - About page (Dylan)
   - Feedback with Cliff / Board
 
 - Week 2
-  - Advanced Styling
-    - Animations
+  - Styling (All)
+    - Animations 
     - Appealing to Users
     - F Style Layout
   - Feedback with Cliff / Board
-  - Edit content / style based off feedback
+  - Edit content / style based off feedback 
   
-- Week 3
+- Week 3 (All)
   - Custom Domain
   - Discuss Hosting Options
     - AWS
@@ -53,11 +59,11 @@ http://mscoastcrimestoppers.com
     - Vercel
   - Talk to Cliff / Board
 - Week 4
-  - Deployment
+  - Deployment (All)
   - Additional Features from Original Project
-    - Tip
-    - Newsletter / News
-    - Stats
+    - Tip (Seth)
+    - Newsletter / News (Dylan)
+    - Stats (Travis)
 - Week 5
   - Presentation Prep
     - Working with a Client
@@ -78,5 +84,11 @@ http://mscoastcrimestoppers.com
 *Platform:* React / Web Platform   
 *Framework:* Next.js  
 *Package management:* NPM 
+
+## Database
+Prisma
+
+## Hosting
+Vercel
 
 
