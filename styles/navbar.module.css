@@ -1,11 +1,6 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
-    background-image: url(../public/crimestoppers.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
     position: sticky;
 }
 
@@ -18,9 +13,16 @@
     justify-self: flex-start;
     margin-left: 0.3em;
     text-decoration: none;
+    color: black;
 }
 
 .link {
     margin-right: 0.8em;
     text-decoration: none;
+    color: black;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
 }
