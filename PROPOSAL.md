@@ -2,7 +2,7 @@
 The official Yalobusha County Crime Stoppers website. On this website, people can find information regarding Crime Stoppers. The motivation for this project is for a real world client.
 
 # Prior Art
-We've looked at multiple Crime Stoppers website for insight on developing the website. This static website built with Next.js which allows for a fast and easy development process.
+We've looked at multiple Crime Stoppers website for insight on developing the website. This static website built with Next.js which allows for a fast and easy development process.   
 https://www.crime-stoppers.com   
 https://www.seacoastcrimestoppers.com    
 http://mscoastcrimestoppers.com   
