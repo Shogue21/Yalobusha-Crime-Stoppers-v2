@@ -12,7 +12,12 @@ http://mscoastcrimestoppers.com
 - Reinfornce the idea of guaranteed anonymity
 - Explain cash reward system
 - Stress civic responsibility
-- Explain the proccess of submiting a tip
+- Explain the proccess of submiting a tip   
+
+- New Version
+  - Tip System
+  - Newsletter / News
+  - Stats
 
 
 <!-- # Deployment Workflow / Services -->
