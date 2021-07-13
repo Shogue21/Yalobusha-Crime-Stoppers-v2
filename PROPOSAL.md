@@ -49,7 +49,7 @@ http://mscoastcrimestoppers.com
   - Talk to Cliff / Board
 - Week 4
   - Deployment
-  - Additional Features
+  - Additional Features from Original Project
     - Tip
     - Newsletter / News
     - Stats
