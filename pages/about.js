@@ -10,12 +10,12 @@ export default function AboutUs() {
          <link rel="icon" href="/favicon.ico" />
        </Head>
 
-    <body>
-      <div className="about-us">
+    <body className={styles.body}>
+      <div>
           <h1 className={styles.h1}>About Us</h1>
       </div>
-      <div className={styles.AboutUsContent}>
-        <p>
+      <div>
+        <p className={styles.content}>
         Yalobusha County Crime Stoppers
         encourages members of the community to
         assist local law enforcement agencies in the
@@ -32,7 +32,7 @@ export default function AboutUs() {
         offender.
         </p>
         
-        <p>
+        <p className={styles.content}>
         The Yalobusha County Crime Stoppers “hotline”
         is a vital resource in helping reduce crime in our
         community. With its triangle of cooperation
@@ -46,20 +46,24 @@ export default function AboutUs() {
         </p>
       </div>
       
-      <div className={styles.tipProcess}>
+      <div>
         <h1 className={styles.h1}>Tip Process</h1>
         <h3 className={styles.howTo}>How do I submit a tip? </h3>
-        <p>
+        <p className={styles.content}>
         First you should know that you remain completley anonymous and are eligible to receive a cash reward if the information given leads to an arrest or grand jury indictment of a felony offender.
-        Second you should know that you can submit a tip to Yalobusha County Crime Stoppers by calling the tip line at bottom of the page. 
+        Second you should know that you can submit a tip to Yalobusha County Crime Stoppers by calling the tip line at bottom of the page. Here you will be conntected to a call center. They will ask you for only information that is necessary to complete the tip.
+        They will give you a number and if the tip you submit leads to an arrest of a felony offender, you can call back with the number you were given previously and go about collecting your reward. 
+        </p>
+        <p>
+        Rewards range from $500 to $1,000. This is based on the severity of the crime.
         </p>
       </div>
-      <div className={styles.community}>
+      <div>
       <h1 className={styles.h1}>
         Why should I call?
       </h1>
-        <p>
-          It can help to protect you, your loved ones and community from future crimes
+        <p className={styles.content}>
+          You'll help protect your loved ones and community from crimes.
         </p>
       </div>
     </body>
