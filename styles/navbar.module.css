@@ -1,9 +1,10 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
+    top: 0;
     padding-right: 1em;
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(63, 62, 62);
 }
 
 .links {

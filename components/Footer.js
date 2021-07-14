@@ -21,7 +21,7 @@ const Footer = () => {
             <h1>Yalobusha Crime Stoppers</h1>
             <h3>Submit a Tip</h3>
             <div >
-            <a className={styles.icons} href="tel:5555555555"><i class='bx bx-phone-call bx-tada-hover'></i></a>
+            <a className={styles.icons} href="tel:5555555555"><i className='bx bx-phone-call bx-tada-hover'></i></a>
             
             {/* {isHovered && openEnvelope()}
             {!isHovered && closeEnvelope()} */}
