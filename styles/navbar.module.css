@@ -3,7 +3,7 @@
     justify-content: space-between;
     position: sticky;
     padding-right: 1em;
-    background-color: lightgray;
+    background-color: rgb(41, 41, 41);
 }
 
 .links {
@@ -38,5 +38,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    
+    .link {
+        font-size: 10px;
+    }
 }

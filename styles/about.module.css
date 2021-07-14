@@ -1,18 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
 
+
+
 .body{
     margin: 10px;
 }
 
-.h1{
-    font-weight: 600;
+.contentContainer{
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "About-Us About-Us-Content About-Us-Content"
+    "Tip-Process Tip-Process-Content Tip-Process-Content"
+    "Why-should-I-call Why-should-you-call-content Why-should-you-call-content"; 
 }
 
-.content{
-    font-weight: 500;
+.AboutUs { 
+    grid-area: About-Us;
+    margin-left: 8rem;
+    margin-top: 5rem;
+    color: #C7333C;
+ }
+
+
+
+.TipProcess { 
+    grid-area: Tip-Process; 
+    margin-left: 7rem;
+    margin-top: 3rem;
+    color: #C7333C;
+    
+}
+.WhyshouldIcall {
+     grid-area: Why-should-I-call; 
+     margin-left: 4rem;
+     color: #C7333C;
 }
 
-.howTo{
-    font-weight: 500;
+
+.AboutUsContent {
+     grid-area: About-Us-Content; 
+     font-weight: 400;
+     font-size: large;
+}
+
+.TipProcessContent {
+     grid-area: Tip-Process-Content;
+     margin-top: 1rem;
+     font-weight: 400;
+     font-size: large;
+}
+
+.Whyshouldyoucallcontent {
+     grid-area: Why-should-you-call-content;
+     font-weight: 400;
+     font-size: large;
 }
