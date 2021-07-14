@@ -1,15 +1,10 @@
 import styles from '../styles/home.module.css'
 import { useState } from 'react'
+import Link from 'next/link'
 
 const index = () => {
-  const [isHover, setIsHover] = useState(false);
-
-  const buttonHovered = () => {
-    return <a className={styles.transparent_btn_Hover} href="/about" onMouseLeave={() => {setIsHover(false)}} >Learn More</a>
-  }
-  const buttonNotHovered = () => {
-    return <a className={styles.button} href="/about" onMouseOver={() => {setIsHover(true)}}>Learn More</a>
-  }
+  const [isHovered, setIsHovered] = useState(false);
+  const toggleHover = () => setIsHovered(!isHovered);
 
   return (
     <div className={styles.landing}>
@@ -17,8 +12,12 @@ const index = () => {
         <h1 className={styles.text}>Yalobusha County Crime Stoppers</h1>
         <p className={styles.text}>If you see something, or hear something, say something!</p>
         <div className={styles.buttons}>
-          {isHover && buttonHovered()}
-          {!isHover && buttonNotHovered()}
+          <Link href="about">
+            <a className={isHovered ? styles.transparent_btn_Hover : styles.button} 
+            onMouseEnter={toggleHover} 
+            onMouseLeave={toggleHover}>
+            Learn More</a>
+          </Link>
         </div>
       </div>
     </div>

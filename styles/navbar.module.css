@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     position: sticky;
+    padding-right: 1em;
 }
 
 .links {
@@ -12,13 +13,15 @@
 .header {
     justify-self: flex-start;
     margin-left: 0.3em;
-    text-decoration: none;
     color: black;
 }
 
-.link {
-    margin-right: 0.8em;
+.noDecor {
     text-decoration: none;
+}
+
+.link {
+    margin-right: 1em;
     color: black;
 }
 
