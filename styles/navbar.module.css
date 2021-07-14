@@ -18,10 +18,12 @@
 
 .noDecor {
     text-decoration: none;
+    cursor: pointer;
+    color: black;
 }
 
 .link {
-    margin-right: 1em;
+    margin-left: 1em;
     color: black;
 }
 
