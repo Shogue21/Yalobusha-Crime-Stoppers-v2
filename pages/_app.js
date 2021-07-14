@@ -7,10 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import dynamic from 'next/dynamic'
 
-const DynamicComponentWithNoSSR = dynamic(
-  () => import('bootstrap/dist/js/bootstrap'),
-  { ssr: false }
-)
+
 
 
 typeof window !== 'undefined'
