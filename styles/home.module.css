@@ -72,3 +72,9 @@
 .twitterFeed {
     border-radius: 50% !important;
 }
+
+.twitterFollowButton{
+	position: absolute;
+	top: 205px;
+	left: 955px;
+}

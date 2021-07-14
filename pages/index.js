@@ -1,8 +1,9 @@
 import styles from '../styles/home.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
-import {motion} from 'framer-motion'
-import { TwitterTimelineEmbed} from 'react-twitter-embed';
+import { motion } from 'framer-motion'
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import {TwitterFollowButton} from 'react-twitter-embed';
 
 const index = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -36,7 +37,14 @@ const index = () => {
               screenName="YalobushaSO"
               options={{height: 400}}
               className={styles.twitterFeed}
+              noFooter
+              noHeader
             />
+            <div className={styles.twitterFollowButton}>
+            <TwitterFollowButton
+                screenName={'YalobushaSO'}
+              />
+            </div>
         </div>
       </div>
     </div>
