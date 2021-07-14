@@ -34,11 +34,11 @@
 }
 .WhyshouldIcall {
      grid-area: Why-should-I-call; 
-     margin-left: 6rem;
+     margin-left: 4rem;
 }
 
 .submitTipHeader{
-    margin-left: 2rem;
+    font-weight: 500;
 }
 
 .AboutUsContent {
@@ -53,6 +53,7 @@
      font-weight: 400;
      font-size: large;
 }
+
 .Whyshouldyoucallcontent {
      grid-area: Why-should-you-call-content;
      font-weight: 400;

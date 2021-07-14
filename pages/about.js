@@ -20,7 +20,7 @@ export default function AboutUs() {
         <h1>Tip Process</h1>
       </div>
       <div className={styles.WhyshouldIcall}>
-        <h1>Why should I call?</h1>
+        <h1>Why Do We Need Crime Stoppers?</h1>
         <h3 className={styles.submitTipHeader}>How do I submit a tip? </h3>
       </div>
       <div className={styles.AboutUsContent}>
@@ -49,19 +49,40 @@ export default function AboutUs() {
       </div>
       <div className={styles.TipProcessContent}>
         <p>
-        First you should know that you remain completley anonymous and are eligible to receive a cash reward if the information given leads to an arrest or grand jury indictment of a felony offender.
-        Second you should know that you can submit a tip to Yalobusha County Crime Stoppers by calling the tip line at bottom of the page. Here you will be conntected to a call center. They will ask you for only information that is necessary to complete the tip.
-        They will give you a number and if the tip you submit leads to an arrest of a felony offender, you can call back with the number you were given previously and go about collecting your reward. 
+        If you've seen suspicious activity, or
+        know that a crime has been committed,
+        simply call 473-4935 or 1-866-933-
+        TIPS (8477). You don't have to give
+        your name! An operator will take your
+        information and assign you a code
+        number. If an arrest is made, you call
+        Crime Stoppers again, provide your
+        code number, and a reward may be paid
+        - no questions asked!
+        The operator will give instructions about
+        how to collect your cash reward. You
+        never have to reveal your identity or
+        sign any receipts.
         </p>
         <p>
           <strong>
-            Rewards range from $300 to $1,000. This is based on the severity of the crime.
+          If your information leads to an arrest,
+          you could receive a reward of up to
+          $1,000.
           </strong>
         </p>
       </div>
       <div className={styles.Whyshouldyoucallcontent}>
       <p className>
-          You'll help protect your loved ones and community from crimes.
+      Yalobusha County Crime Stoppers breaks
+      through the barriers. Callers remain
+      completely anonymous.<strong> “Better to have anonymous
+      information than no information at all.” </strong>
+      The offering of cash rewards crosses the
+      barrier of apathy. Although many people
+      refuse rewards, the availability of cash is an
+      incentive to many callers who may not have
+      otherwise given information.
         </p>
       </div>
       </div>
