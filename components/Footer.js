@@ -18,10 +18,10 @@ const Footer = () => {
      
             <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
              
-            <h1>Submit A Tip!</h1>
-            <h3>Contact Us</h3>
+            <h1>Yalobusha Crime Stoppers</h1>
+            <h3>Submit a Tip</h3>
             <div >
-            <a className={styles.icons} href="tel:5555555555"><i class='bx bx-phone-call'></i></a>
+            <a className={styles.icons} href="tel:5555555555"><i class='bx bx-phone-call bx-tada-hover'></i></a>
             
             {/* {isHovered && openEnvelope()}
             {!isHovered && closeEnvelope()} */}
