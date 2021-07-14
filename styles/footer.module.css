@@ -16,6 +16,7 @@ font-size: 40px;
     position: sticky;
     font-size: 1rem;
     height: 28vh;
+    padding-top: 1rem;
 }
 
 
@@ -29,4 +30,16 @@ font-size: 40px;
 .paragraph {
     margin: 0px;
     margin-left: 25px;
+}
+
+
+
+.imgDIV{
+    margin-top: -145px;
+    margin-right: 60rem;
+}
+
+.msDPT{
+    width: 300px;
+    height: 140px;
 }
