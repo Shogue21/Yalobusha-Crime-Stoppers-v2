@@ -33,3 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 .next/static/chunks/main.js
+package-lock.json
+.gitignore
+package.json
