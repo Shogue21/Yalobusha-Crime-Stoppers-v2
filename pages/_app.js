@@ -3,10 +3,17 @@ import Navbar from '../components/Navbar'
 import Head from 'next/head'
 import Footer from '../components/Footer'
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap'
 
 
+import dynamic from 'next/dynamic'
 
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('bootstrap/dist/js/bootstrap'),
+  { ssr: false }
+)
+
+
+typeof window !== 'undefined'
 export default function MyApp({ Component, pageProps }) {
   return <div>
   <Head> 
