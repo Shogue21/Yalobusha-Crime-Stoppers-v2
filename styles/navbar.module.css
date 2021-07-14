@@ -3,6 +3,7 @@
     justify-content: space-between;
     position: sticky;
     padding-right: 1em;
+    background-color: lightgray;
 }
 
 .links {
@@ -14,20 +15,28 @@
     justify-self: flex-start;
     margin-left: 0.3em;
     color: black;
-}
-
-.noDecor {
+    font-size: 24px;
     text-decoration: none;
-    cursor: pointer;
-    color: black;
 }
 
 .link {
-    margin-left: 1em;
+    margin-left: 0.7em;
+    margin-right: 0.7em;
     color: black;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: blue;
 }
 
 .logo {
     width: 70px;
     height: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+    
 }
