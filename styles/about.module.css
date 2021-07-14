@@ -61,7 +61,7 @@
 .about, .HIW, .WYSC {
      display: flex;
      align-items: center;
-     height: 100vh;
+     height: 83vh;
      border-bottom: 1px solid black;
 }
 
