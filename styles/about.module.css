@@ -20,9 +20,7 @@
 
 .AboutUs { 
     grid-area: About-Us;
-    margin-left: 8rem;
-    margin-top: 5rem;
-    color: #C7333C;
+    
  }
 
 
@@ -58,4 +56,24 @@
      grid-area: Why-should-you-call-content;
      font-weight: 400;
      font-size: large;
+}
+
+.about, .HIW, .WYSC {
+     display: flex;
+     align-items: center;
+     height: 100vh;
+     border-bottom: 1px solid black;
+}
+
+.aboutHeader, .HIWHeader, .WYSCHeader {
+     color: #C7333C;
+     margin-left: 10em;
+     white-space: nowrap;
+}
+
+.aboutContent, .HIWContent, .WYSCContent {
+     font-weight: 400;
+     font-size: large;
+     margin-left: 20em;
+     margin-right: 10em;
 }
