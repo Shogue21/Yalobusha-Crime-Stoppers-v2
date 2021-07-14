@@ -1,10 +1,9 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    top: 0;
+    position: sticky;
     padding-right: 1em;
-    background-color: rgb(63, 62, 62);
+    background-color: rgb(63, 62, 62) !important;
 }
 
 .links {
@@ -31,6 +30,7 @@
 
 .link:hover {
     color: blue;
+    border-bottom: 1px blue solid;
 }
 
 .logo {

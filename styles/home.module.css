@@ -9,11 +9,15 @@
 
 .center {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: inherit;
     color: white;
+}
+
+.main {
+    padding: 5em;
 }
 
 .text {
@@ -26,6 +30,7 @@
     justify-content: space-between;
     width: inherit;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .button {
@@ -62,4 +67,8 @@
 	cursor: pointer;
 	background-color: rgba(255,255,255, 0.3);
 	color: #FFF;
+}
+
+.twitterFeed {
+    border-radius: 50% !important;
 }

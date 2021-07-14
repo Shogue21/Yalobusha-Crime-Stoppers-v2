@@ -2,6 +2,7 @@ import styles from '../styles/home.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
 import {motion} from 'framer-motion'
+import { TwitterTimelineEmbed} from 'react-twitter-embed';
 
 const index = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -15,6 +16,7 @@ const index = () => {
   return (
     <div className={styles.landing}>
       <div className={styles.center}>
+        <div className={styles.main}>
         <h1 className={styles.text}>Yalobusha County Crime Stoppers</h1>
         <p className={styles.text}>If you see something, or hear something, say something!</p>
         <div className={styles.buttons}>
@@ -26,6 +28,15 @@ const index = () => {
             variants={variants}>
             Learn More</motion.a>
           </Link>
+        </div>
+        </div>
+        <div>
+            <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName="YalobushaSO"
+              options={{height: 400}}
+              className={styles.twitterFeed}
+            />
         </div>
       </div>
     </div>
