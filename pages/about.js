@@ -21,7 +21,7 @@ export default function AboutUs() {
       </div>
       <div className={styles.WhyshouldIcall}>
         <h1>Why Do We Need Crime Stoppers?</h1>
-        <h3 className={styles.submitTipHeader}>How do I submit a tip? </h3>
+
       </div>
       <div className={styles.AboutUsContent}>
       <p>

@@ -22,6 +22,7 @@
     grid-area: About-Us;
     margin-left: 8rem;
     margin-top: 5rem;
+    color: #C7333C;
  }
 
 
@@ -30,16 +31,15 @@
     grid-area: Tip-Process; 
     margin-left: 7rem;
     margin-top: 3rem;
+    color: #C7333C;
     
 }
 .WhyshouldIcall {
      grid-area: Why-should-I-call; 
      margin-left: 4rem;
+     color: #C7333C;
 }
 
-.submitTipHeader{
-    font-weight: 500;
-}
 
 .AboutUsContent {
      grid-area: About-Us-Content; 

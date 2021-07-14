@@ -3,7 +3,7 @@
     justify-content: space-between;
     position: sticky;
     padding-right: 1em;
-    background-color: #C6BA8D;
+    background-color: rgb(41, 41, 41);
 }
 
 .links {
@@ -20,12 +20,12 @@
 .noDecor {
     text-decoration: none;
     cursor: pointer;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .link {
     margin-left: 1em;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .logo {
