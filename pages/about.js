@@ -4,7 +4,7 @@ import styles from '../styles/about.module.css'
 
 export default function AboutUs() {
     return (
-      <div className="d-flex flex-column">
+      <div className={`${styles.body} d-flex flex-column`}>
         <div className={styles.about}>
           <div className={styles.aboutHeader}>
             <h1>About Us</h1>

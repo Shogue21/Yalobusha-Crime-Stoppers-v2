@@ -30,12 +30,11 @@ const index = () => {
           </Link>
         </div>
         </div>
-        <div>
+        <div className={styles.twitterFeed}>
             <TwitterTimelineEmbed
               sourceType="profile"
               screenName="YalobushaSO"
               options={{height: 400}}
-              className={styles.twitterFeed}
             />
         </div>
       </div>

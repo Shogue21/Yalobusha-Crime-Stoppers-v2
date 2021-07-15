@@ -69,6 +69,15 @@
 	color: #FFF;
 }
 
-.twitterFeed {
-    border-radius: 50% !important;
+@media only screen and (max-width: 600px) {
+    .twitterFeed {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 2048px) {
+    .twitterFeed {
+        height: 600px;
+        width: 600px;
+    }
 }

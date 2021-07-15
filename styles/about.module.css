@@ -4,7 +4,9 @@
 
 
 .body{
-    margin: 10px;
+    background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .about, .HIW, .WYSC {
@@ -23,7 +25,19 @@
 
 .aboutContent, .HIWContent, .WYSCContent {
      font-weight: 400;
-     font-size: 17px;
+     font-size: clamp(8px, 16px, 24px);
      margin-left: 20em;
      margin-right: 10em;
+     line-height: 35px;
+}
+
+@media only screen and (max-width: 600px) {
+     
+}
+
+@media only screen and (min-width: 2048px) {
+     .aboutContent, .HIWContent, .WYSCContent {
+          font-size: 24px;
+          line-height: 50px;
+     }
 }
