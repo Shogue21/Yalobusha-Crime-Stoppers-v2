@@ -7,61 +7,10 @@
     margin: 10px;
 }
 
-.contentContainer{
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 1fr 1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-    "About-Us About-Us-Content About-Us-Content"
-    "Tip-Process Tip-Process-Content Tip-Process-Content"
-    "Why-should-I-call Why-should-you-call-content Why-should-you-call-content"; 
-}
-
-.AboutUs { 
-    grid-area: About-Us;
-    
- }
-
-
-
-.TipProcess { 
-    grid-area: Tip-Process; 
-    margin-left: 7rem;
-    margin-top: 3rem;
-    color: #C7333C;
-    
-}
-.WhyshouldIcall {
-     grid-area: Why-should-I-call; 
-     margin-left: 4rem;
-     color: #C7333C;
-}
-
-
-.AboutUsContent {
-     grid-area: About-Us-Content; 
-     font-weight: 400;
-     font-size: large;
-}
-
-.TipProcessContent {
-     grid-area: Tip-Process-Content;
-     margin-top: 1rem;
-     font-weight: 400;
-     font-size: large;
-}
-
-.Whyshouldyoucallcontent {
-     grid-area: Why-should-you-call-content;
-     font-weight: 400;
-     font-size: large;
-}
-
 .about, .HIW, .WYSC {
      display: flex;
      align-items: center;
-     height: 100vh;
+     height: 80vh;
      border-bottom: 1px solid black;
 }
 
@@ -69,11 +18,12 @@
      color: #C7333C;
      margin-left: 10em;
      white-space: nowrap;
+     width: 100px;
 }
 
 .aboutContent, .HIWContent, .WYSCContent {
      font-weight: 400;
-     font-size: large;
+     font-size: 17px;
      margin-left: 20em;
      margin-right: 10em;
 }

@@ -11,15 +11,34 @@ export default function AboutUs() {
           </div>
           <div className={styles.aboutContent}>
             <p>
-              Our Crime Stoppers program works closely
-              with all area media in issuing press releases,
-              providing photos of wanted fugitives, and
-              suggesting story ideas for newscasts and
-              print. Crime Stoppers is an invaluable asset
-              to the community in the fight against crime in
-              that it gives citizens a safe, secure means to
-              give information that may help solve crimes.
-          </p>
+            Yalobusha County Crime Stoppers
+            encourages members of the community to
+            assist local law enforcement agencies in the
+            fight against crime by overcoming the two key
+            elements that inhibit community involvement -
+            fear and apathy.  Crime Stoppers provides a
+            telephone number and Web Tips to encourage
+            citizens in the community to volunteer vital
+            information helpful to law enforcement
+            agencies to fight against crime.  Callers
+            remain anonymous and are eligible to receive
+            a cash reward if the information given leads to
+            an arrest or grand jury indictment of a felony
+            offender.
+            </p>
+
+            <p>
+              The Yalobusha County Crime Stoppers “hotline”
+              is a vital resource in helping reduce crime in our
+              community. With its triangle of cooperation
+              between the citizens, the media and law
+              enforcement, Yalobusha County Crime Stoppers
+              is dedicated to putting criminals behind bars
+              while building a foundation of trust and support.
+              The goal of Yalobusha County Crime Stoppers is
+              to make the streets safer for our families and
+              neighborhoods.
+            </p>
           </div>
         </div>
         <div className={`${styles.HIW}`}>
@@ -28,7 +47,7 @@ export default function AboutUs() {
           </div>
           <div className={styles.HIWContent}>
             <p>
-              If you've seen suspicious activity, or
+                If you've seen suspicious activity, or
               know that a crime has been committed,
               simply call 473-4935 or 1-866-933-
               TIPS (8477). You don't have to give
@@ -42,7 +61,15 @@ export default function AboutUs() {
               how to collect your cash reward. You
               never have to reveal your identity or
               sign any receipts.
-          </p>
+            </p>
+            <p>
+              <strong>
+                Rewards range from $300 to $1,000. This is based on the severity of the crime.
+              If your information leads to an arrest,
+              you could receive a reward of up to
+              $1,000.
+              </strong>
+            </p>
           </div>
         </div>
         <div className={styles.WYSC}>
