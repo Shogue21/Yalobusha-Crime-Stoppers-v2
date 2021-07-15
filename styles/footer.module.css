@@ -43,3 +43,52 @@ font-size: 40px;
     width: 300px;
     height: 140px;
 }
+
+@media screen and (max-width: 600px) {
+    .icons{
+        color: white;
+        font-size: 33px;
+        }
+        
+    .footer { 
+        text-align: center;
+        color:rgb(255, 255, 255);
+        background-color: #07020d;
+        border-top: 1px solid black;
+        margin: 0px;
+        background-size: cover;
+        background-position-x: center;
+        position: sticky;
+        height: 31vh;
+        padding-top: 1rem;
+        
+    }
+        
+        
+    .call {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        color: white;
+    }
+    .call :visited{
+        color: rgb(230, 0, 0);
+    }
+    
+    .paragraph {
+        margin: 0px;
+        margin-left: 25px;
+    }
+    
+    
+    
+    .imgDIV{
+        margin-top: 3px;
+        margin-right: 0rem;
+    }
+    .msDPT{
+        width: 150px;
+        height: 60px;
+    }
+}
