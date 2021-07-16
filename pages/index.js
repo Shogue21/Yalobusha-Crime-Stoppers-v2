@@ -19,7 +19,7 @@ const index = () => {
       <div className={styles.center}>
         <div className={styles.main}>
         <h1 className={styles.text}>Yalobusha County Crime Stoppers</h1>
-        <p className={styles.text}>If you see something, or hear something, say something!</p>
+        <p class={styles.slogan} className={styles.text}>If you see something, or hear something, say something!</p>
         <div className={styles.buttons}>
           <Link href="about">
             <motion.a className={isHovered ? styles.transparent_btn_Hover : styles.button} 

@@ -38,8 +38,46 @@
     height: 70px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        position: sticky;
+        padding-right: 1em;
+        background-color: rgb(63, 62, 62) !important;
+    }
+    
+    .links {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header {
+        justify-self: flex-start;
+        margin-right: 0.3em;
+        color: black;
+        font-size: 16px;
+        text-decoration: none;
+
+    }
+    
     .link {
-        font-size: 10px;
+        margin-left: .4em;
+        
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .link:hover {
+        color: blue;
+        border-bottom: 1px blue solid;
+    }
+    
+    .logo {
+        display: none;
+        padding: 0;
+        margin:0;
     }
 }
