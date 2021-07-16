@@ -40,7 +40,7 @@
       
       .about, .HIW, .WYSC {
            align-items: center;
-           height: 100vh;
+           height: 150vh;
            border-bottom: 1px solid black;
       }
       
@@ -49,6 +49,60 @@
            margin-left: 1em;
            width: 100px;
       }
+      
+      .about{
+           margin-top: -5em
+      }
+
+      .aboutHeader{
+           margin-right: 1em;
+           margin-bottom: 48em;
+           ;
+           
+      }
+      .aboutText{
+           margin-left: -10em;
+           margin-top: 20em;
+          
+      }
+
+      .aboutText2{
+        margin-left: -10em;
+        margin-bottom: 50em;
+        padding-top: 20px;
+     }
+
+     .HIW{
+          margin-top: -20em;
+     }
+
+     .HIWHeader{
+          margin-right: -1em;
+          margin-bottom: 18em;
+     }
+
+     .HIWP{
+          margin-left: -8em;
+          margin-bottom: 2em;
+     }
+
+     .HIWP2{
+          margin-left: -8em;
+          margin-bottom: 15em;
+     }
+
+     .WYSC{
+          margin-top: -35em;
+     }
+     .WYSCHeader{
+          margin-right: -1em;
+          margin-top: 12em;
+     }
+
+     .WYSCCP{
+          margin-left: -8em;
+          margin-top: 8em;
+     }
       
       .aboutContent, .HIWContent, .WYSCContent {
            font-weight: 400;
