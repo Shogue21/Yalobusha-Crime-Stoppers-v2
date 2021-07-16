@@ -73,21 +73,6 @@
     .twitterFeed {
         display: none;
     }
-}
-
-@media only screen and (min-width: 2048px) {
-    .twitterFeed {
-        height: 600px;
-        width: 600px;
-    }
-.twitterFeed {
-    border-radius: 50% !important;
-}
-
-
-
-@media  screen and (max-width: 600px) {
-	
 	.landing {
 		height: 100vh;
 		background: 
@@ -107,21 +92,21 @@
 	}
 	
 	.main {
-		padding: 5em;
+		padding: 1em;
+		text-align: center;
 	}
 	
 	.text {
 		margin: 4px;
 		margin-bottom: 15px;
+		font-size: 30px;
+
+	}
+	.slogan{
+		font-size: 20px!important;
 	}
 	
-	.buttons {
-		flex-direction: row;
-		justify-content: space-between;
-		width: inherit;
-		margin-top: 30px;
-		margin-bottom: 30px;
-	}
+
 	
 	.button {
 		display: inline-block;
@@ -139,6 +124,10 @@
 		-moz-transition: background-color 300ms ease;
 		transition: background-color 300ms ease;
 		cursor: pointer;
+		
+		width: 150px;
+		text-align: center;
+	
 	}
 	
 	.transparent_btn_Hover {
@@ -166,4 +155,16 @@
 	}
 
 }
+
+
+@media only screen and (min-width: 2048px) {
+    .twitterFeed {
+        height: 600px;
+        width: 600px;
+    }
+.twitterFeed {
+    border-radius: 50% !important;
+}
+
+
 }
