@@ -32,7 +32,33 @@
 }
 
 @media only screen and (max-width: 600px) {
-     
+     .body{
+          background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      
+      .about, .HIW, .WYSC {
+           align-items: center;
+           height: 100vh;
+           border-bottom: 1px solid black;
+      }
+      
+      .aboutHeader, .HIWHeader, .WYSCHeader {
+           color: #C7333C;
+           margin-left: 1em;
+           width: 100px;
+      }
+      
+      .aboutContent, .HIWContent, .WYSCContent {
+           font-weight: 400;
+           margin-left: 2em;
+           margin-right: 1em;
+           margin-top: 35em;
+           line-height: 35px;
+           font-size: 14px;
+
+      }
 }
 
 @media only screen and (min-width: 2048px) {
