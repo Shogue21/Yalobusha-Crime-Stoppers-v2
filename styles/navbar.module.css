@@ -1,8 +1,4 @@
 .nav {
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    padding-right: 1em;
     background-color: rgb(63, 62, 62) !important;
 }
 
@@ -56,7 +52,7 @@
         justify-self: flex-start;
         margin-right: 0.3em;
         color: black;
-        font-size: 16px;
+        font-size: 14px;
         text-decoration: none;
 
     }
@@ -76,12 +72,7 @@
     }
     
     .logo {
-        display: none;
-        padding: 0;
-        margin:0;
-    }
-
-    .header {
-        font-size: 18px;
+        width: 40px;
+        height: 40px;
     }
 }
