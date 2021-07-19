@@ -71,7 +71,7 @@
 
 @media only screen and (max-width: 600px) {
     .twitterFeed {
-        display: none;
+       display: none; 
     }
 	.landing {
 		height: 100vh;
@@ -103,7 +103,7 @@
 
 	}
 	.slogan{
-		font-size: 20px!important;
+		font-size: 20px !important;
 	}
 	
 
@@ -127,7 +127,6 @@
 		
 		width: 150px;
 		text-align: center;
-	
 	}
 	
 	.transparent_btn_Hover {
@@ -165,6 +164,4 @@
 .twitterFeed {
     border-radius: 50% !important;
 }
-
-
 }
