@@ -58,7 +58,7 @@ font-size: 40px;
     bottom: 4.6em;
 }
 
-@media screen and (min-width: 375px) and (max-width: 800px){
+@media screen and (min-width: 320px) and (max-width: 800px){
     .icons{
         color: white;
         font-size: 33px;
@@ -72,7 +72,7 @@ font-size: 40px;
         background-size: cover;
         background-position-x: center;
         position: sticky;
-        height: 31vh;
+        height: 40vh;
         padding-top: 1rem;
         display: grid;
         grid-template-columns: repeat(1, minmax(120px, 2fr));

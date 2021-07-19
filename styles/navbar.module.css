@@ -75,4 +75,12 @@
         width: 40px;
         height: 40px;
     }
+
+    .collapsed {
+        border: 1px solid black !important;
+        position: absolute;
+        right: 1%;
+        background-color: white;
+        margin-top: 5px;
+    }
 }
