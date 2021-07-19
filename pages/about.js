@@ -40,6 +40,7 @@ export default function AboutUs() {
         
           <h1 className={styles.HIWHeader}>Tip Process</h1>
           <div className={styles.content}>
+            
           <p>
               If you've seen suspicious activity, or
               know that a crime has been committed,

@@ -13,14 +13,30 @@
      display: grid;
      grid-template-columns: repeat(2, minmax(450px, 1fr));
      margin: 0 auto;
-     grid-gap: 13rem;
+     grid-gap: 12rem;
      padding: 2rem;
      
 }
 
-.HIWHeader, .AboutHeader, .WYSCHeader{
+
+
+ .AboutHeader{
      color: #C7333C;
-     white-space: nowrap;    
+     white-space: nowrap;  
+     margin-left: 10rem; 
+     margin-top: 10rem; 
+}
+.HIWHeader{
+     color: #C7333C;
+     white-space: nowrap;  
+     margin-left: 10rem; 
+     margin-top: 5rem;  
+}
+
+.WYSCHeader{
+     color: #C7333C;
+     white-space: nowrap;  
+     margin-left: 5rem;
 }
 
 .content{
@@ -44,6 +60,7 @@
           color: #C7333C;
           white-space: nowrap;   
           margin-left: 0rem;  
+          margin-top: 0rem;
      }
      .content{
           font-weight: 400;
