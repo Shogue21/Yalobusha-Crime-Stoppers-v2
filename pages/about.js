@@ -4,51 +4,44 @@ import styles from '../styles/about.module.css'
 
 export default function AboutUs() {
     return (
-      <div className={`${styles.body} d-flex flex-column`}>
-        <div className={styles.about}>
-          <div className={styles.aboutHeader}>
-            <h1>About Us</h1>
-          </div>
-          <div className={styles.aboutContent}>
-            <p className={styles.aboutText}>
-            
-            Yalobusha County Crime Stoppers
-            encourages members of the community to
-            assist local law enforcement agencies in the
-            fight against crime by overcoming the two key
-            elements that inhibit community involvement -
-            fear and apathy.  Crime Stoppers provides a
-            telephone number and Web Tips to encourage
-            citizens in the community to volunteer vital
-            information helpful to law enforcement
-            agencies to fight against crime.  Callers
-            remain anonymous and are eligible to receive
-            a cash reward, if the information given leads to
-            an arrest and a grand jury indictment of a felony
-            offender.
-            </p>
-
-            <p className={styles.aboutText2}>
-              The Yalobusha County Crime Stoppers “hotline”
-              is a vital resource in helping reduce crime in our
-              community. With its triangle of cooperation
-              between the citizens, the media and law
-              enforcement, Yalobusha County Crime Stoppers
-              is dedicated to putting criminals behind bars
-              while building a foundation of trust and support.
-              The goal of Yalobusha County Crime Stoppers is
-              to make the streets safer for our families and
-              neighborhoods.
-            </p>
-          </div>
-        </div>
-        <div className={`${styles.HIW}`}>
-          <div className={styles.HIWHeader}>
-            <h1>Tip Process</h1>
-          </div>
-          <div className={styles.HIWContent}>
-            <p className={styles.HIWP}>
-                If you've seen suspicious activity, or
+      <body className={styles.body}>
+      <div className={styles.container}>
+          <h1 className={styles.AboutHeader}>About Us</h1>
+            <div className={styles.content}>
+              <p>
+                Yalobusha County Crime Stoppers
+                encourages members of the community to
+                assist local law enforcement agencies in the
+                fight against crime by overcoming the two key
+                elements that inhibit community involvement -
+                fear and apathy.  Crime Stoppers provides a
+                telephone number and Web Tips to encourage
+                citizens in the community to volunteer vital
+                information helpful to law enforcement
+                agencies to fight against crime.  Callers
+                remain anonymous and are eligible to receive
+                a cash reward, if the information given leads to
+                an arrest and a grand jury indictment of a felony
+                offender.
+              </p>
+              <p>
+                The Yalobusha County Crime Stoppers “hotline”
+                is a vital resource in helping reduce crime in our
+                community. With its triangle of cooperation
+                between the citizens, the media and law
+                enforcement, Yalobusha County Crime Stoppers
+                is dedicated to putting criminals behind bars
+                while building a foundation of trust and support.
+                The goal of Yalobusha County Crime Stoppers is
+                to make the streets safer for our families and
+                neighborhoods.
+              </p>
+            </div>
+        
+          <h1 className={styles.HIWHeader}>Tip Process</h1>
+          <div className={styles.content}>
+          <p>
+              If you've seen suspicious activity, or
               know that a crime has been committed,
               simply call 1-866-933-
               TIPS (8477). You don't have to give
@@ -63,22 +56,19 @@ export default function AboutUs() {
               never have to reveal your identity or
               sign any receipts.
             </p>
-            <p className={styles.HIWP2}>
+            <p>
               <strong>
-                Rewards range from $300 to $1,000. This is based on the severity of the crime.
+              Rewards range from $300 to $1,000. This is based on the severity of the crime.
               If your information leads to an arrest,
               you could receive a reward of up to
               $1,000.
               </strong>
             </p>
+        
           </div>
-        </div>
-        <div className={styles.WYSC}>
-          <div className={styles.WYSCHeader}>
-            <h1>Why You Should Call</h1>
-          </div>
-          <div className={styles.WYSCContent}>
-            <p className={styles.WYSCCP}>
+          <h1 className={styles.WYSCHeader}>Why You Should Call</h1>
+          <div className={styles.content}>
+            <p>
               Yalobusha County Crime Stoppers breaks
               through the barriers. Callers remain
               completely anonymous.<strong> “Better to have anonymous
@@ -90,8 +80,8 @@ export default function AboutUs() {
               otherwise given information.
             </p>
           </div>
-        </div>
       </div>
+      </body> 
     )
   }
 
