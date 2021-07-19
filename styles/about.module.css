@@ -92,6 +92,7 @@
 
      .HIW{
           margin-top: -20em;
+          flex-direction: row;
      }
 
      .HIWHeader{
