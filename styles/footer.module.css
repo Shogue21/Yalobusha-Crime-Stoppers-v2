@@ -50,7 +50,7 @@ font-size: 40px;
     bottom: 4.6em;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) and (max-width: 1024px){
     .icons{
         color: white;
         font-size: 33px;
