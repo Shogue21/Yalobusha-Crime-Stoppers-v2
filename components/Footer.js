@@ -22,12 +22,12 @@ const Footer = () => {
             <h2>Submit a Tip</h2>
             <div className={styles.call}>
             <div>
-            <a className={styles.icons} href="tel:5555555555"><i className='bx bx-phone-call bx-tada-hover'></i></a>
+            <a className={styles.icons} href="tel:18669338477"><i className='bx bx-phone-call bx-tada-hover'></i></a>
             
             {/* {isHovered && openEnvelope()}
             {!isHovered && closeEnvelope()} */}
             </div>
-            <h2 className={styles.paragraph}>Call: 555-555-5555</h2>
+            <h2 className={styles.paragraph}>Call: 1-866-933-8477</h2>
             </div>
             <div className={styles.imgDIV}>
                 <img className={styles.msDPT} src="DPS-logo.png"></img>
