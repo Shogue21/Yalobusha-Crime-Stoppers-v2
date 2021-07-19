@@ -23,8 +23,8 @@ export default function AboutUs() {
             information helpful to law enforcement
             agencies to fight against crime.  Callers
             remain anonymous and are eligible to receive
-            a cash reward if the information given leads to
-            an arrest or grand jury indictment of a felony
+            a cash reward, if the information given leads to
+            an arrest and a grand jury indictment of a felony
             offender.
             </p>
 
@@ -50,13 +50,13 @@ export default function AboutUs() {
             <p className={styles.HIWP}>
                 If you've seen suspicious activity, or
               know that a crime has been committed,
-              simply call 473-4935 or 1-866-933-
+              simply call 1-866-933-
               TIPS (8477). You don't have to give
               your name! An operator will take your
               information and assign you a code
               number. If an arrest is made, you call
               Crime Stoppers again, provide your
-              code number, and a reward may be paid
+              code number, and a reward will be paid
               - no questions asked!
               The operator will give instructions about
               how to collect your cash reward. You

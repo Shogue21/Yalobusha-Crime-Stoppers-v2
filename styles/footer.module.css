@@ -27,6 +27,10 @@ font-size: 40px;
     
 }
 
+.phoneLink:link{
+    color: white;
+}
+
 .paragraph {
     margin: 0px;
     margin-left: 25px;

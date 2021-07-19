@@ -16,14 +16,32 @@
      border-bottom: 1px solid black;
 }
 
-.aboutHeader, .HIWHeader, .WYSCHeader {
+.HIW{
+     flex-direction: row-reverse;
+}
+
+.HIWContent{
+     font-weight: 400;
+     font-size: clamp(8px, 16px, 24px);
+     margin-left: 5em;
+     margin-right: 10em;
+     line-height: 35px;
+}
+
+.HIWHeader{
+     color: #C7333C;
+     margin-right: 25em;
+     white-space: nowrap;
+     width: 100px;}
+
+.aboutHeader, .WYSCHeader {
      color: #C7333C;
      margin-left: 10em;
      white-space: nowrap;
      width: 100px;
 }
 
-.aboutContent, .HIWContent, .WYSCContent {
+.aboutContent, .WYSCContent {
      font-weight: 400;
      font-size: clamp(8px, 16px, 24px);
      margin-left: 20em;
