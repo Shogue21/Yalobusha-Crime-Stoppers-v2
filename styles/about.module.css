@@ -9,134 +9,46 @@
     background-repeat: no-repeat;
 }
 
-.about, .HIW, .WYSC {
-     display: flex;
-     align-items: center;
-     height: 80vh;
-     border-bottom: 1px solid black;
+.container{
+     display: grid;
+     grid-template-columns: repeat(2, minmax(450px, 1fr));
+     margin: 0 auto;
+     grid-gap: 13rem;
+     padding: 2rem;
+     
 }
 
-.HIW{
-     flex-direction: row-reverse;
+.HIWHeader, .AboutHeader, .WYSCHeader{
+     color: #C7333C;
+     white-space: nowrap;    
 }
 
-.HIWContent{
+.content{
      font-weight: 400;
      font-size: clamp(8px, 16px, 24px);
-     margin-left: 5em;
-     margin-right: 10em;
      line-height: 35px;
+     margin-left: -15rem;
 }
 
-.HIWHeader{
-     color: #C7333C;
-     margin-right: 25em;
-     white-space: nowrap;
-     width: 100px;}
 
-.aboutHeader, .WYSCHeader {
-     color: #C7333C;
-     margin-left: 10em;
-     white-space: nowrap;
-     width: 100px;
-}
-
-.aboutContent, .WYSCContent {
-     font-weight: 400;
-     font-size: clamp(8px, 16px, 24px);
-     margin-left: 20em;
-     margin-right: 10em;
-     line-height: 35px;
-}
-
-@media only screen and (max-width: 600px) {
-     .body{
-          background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
-          background-size: cover;
-          background-repeat: no-repeat;
-      }
-      
-      .about, .HIW, .WYSC {
-           align-items: center;
-           height: 150vh;
-           border-bottom: 1px solid black;
-      }
-      
-      .aboutHeader, .HIWHeader, .WYSCHeader {
-           color: #C7333C;
-           margin-left: 1em;
-           width: 100px;
-      }
-      
-      .about{
-           margin-top: -5em
-      }
-
-      .aboutHeader{
-           margin-right: 1em;
-           margin-bottom: 48em;
-           ;
-           
-      }
-      .aboutText{
-           margin-left: -10em;
-           margin-top: 20em;
+@media screen and (max-width: 800px){
+     .container{
+          display: grid;
+          grid-template-columns: 1fr;
+          margin: 0 auto;
+          grid-gap: 5rem;
+          padding: 2rem;
           
-      }
-
-      .aboutText2{
-        margin-left: -10em;
-        margin-bottom: 50em;
-        padding-top: 20px;
      }
-
-     .HIW{
-          margin-top: -20em;
-          flex-direction: row;
+     .HIWHeader, .AboutHeader, .WYSCHeader{
+          color: #C7333C;
+          white-space: nowrap;   
+          margin-left: 0rem;  
      }
-
-     .HIWHeader{
-          margin-right: -1em;
-          margin-bottom: 18em;
-     }
-
-     .HIWP{
-          margin-left: -8em;
-          margin-bottom: 2em;
-     }
-
-     .HIWP2{
-          margin-left: -8em;
-          margin-bottom: 15em;
-     }
-
-     .WYSC{
-          margin-top: -35em;
-     }
-     .WYSCHeader{
-          margin-right: -1em;
-          margin-top: 12em;
-     }
-
-     .WYSCCP{
-          margin-left: -8em;
-          margin-top: 8em;
-     }
-      
-      .aboutContent, .HIWContent, .WYSCContent {
-           font-weight: 400;
-           margin-left: 2em;
-           margin-right: 1em;
-           margin-top: 35em;
-           line-height: 35px;
-           font-size: 14px;
-
-      }
-}
-
-@media only screen and (min-width: 2048px) {
-     .aboutContent, .HIWContent, .WYSCContent {
-          font-size: 24px;
-          line-height: 50px;
+     .content{
+          font-weight: 400;
+          font-size: clamp(8px, 16px, 24px);
+          line-height: 35px;
+          margin-left: 0rem;
      }
 }
