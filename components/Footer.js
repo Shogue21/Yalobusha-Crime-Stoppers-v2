@@ -32,6 +32,10 @@ const Footer = () => {
             <div className={styles.imgDIV}>
                 <img className={styles.msDPT} src="DPS-logo.png"></img>
             </div>
+            <div className={styles.twitter}>
+                <a target="_blank" className={styles.icons} href="https://www.twitter.com/YalobushaSO"><i class='bx bxl-twitter'></i></a>
+
+            </div>
 
 
         </footer>
