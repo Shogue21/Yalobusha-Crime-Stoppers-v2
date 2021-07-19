@@ -69,6 +69,10 @@
 	color: #FFF;
 }
 
+.twitterFeed {
+	padding: 2em;
+}
+
 @media only screen and (max-width: 600px) {
     .twitterFeed {
        display: none; 
@@ -149,8 +153,6 @@
 	
 	.twitterFeed {
 		margin-top: 50%;
-		
-
 	}
 
 }
@@ -161,7 +163,4 @@
         height: 600px;
         width: 600px;
     }
-.twitterFeed {
-    border-radius: 50% !important;
-}
 }
