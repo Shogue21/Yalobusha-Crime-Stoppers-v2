@@ -27,15 +27,15 @@ const Footer = () => {
             {/* {isHovered && openEnvelope()}
             {!isHovered && closeEnvelope()} */}
             </div>
-            <h2 className={styles.paragraph}>Call: 1-866-933-8477</h2>
+            <h2 className={styles.paragraph}>Call: 1-866-933-TIPS (8477)</h2>
             </div>
             <div className={styles.imgDIV}>
                 <img className={styles.msDPT} src="DPS-logo.png"></img>
             </div>
-            <div className={styles.twitter}>
+            {/* <div className={styles.twitter}>
                 <a target="_blank" className={styles.icons} href="https://www.twitter.com/YalobushaSO"><i class='bx bxl-twitter'></i></a>
 
-            </div>
+            </div> */}
 
 
         </footer>
