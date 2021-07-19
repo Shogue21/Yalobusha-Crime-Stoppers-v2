@@ -19,7 +19,6 @@ font-size: 40px;
     display: grid;
     grid-template-columns: repeat(2, minmax(320px, 1fr));
     grid-gap: 2rem;
-
     margin: 0 auto;
 
 
@@ -59,7 +58,7 @@ font-size: 40px;
     bottom: 4.6em;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
     .icons{
         color: white;
         font-size: 33px;
@@ -70,13 +69,16 @@ font-size: 40px;
         color:rgb(255, 255, 255);
         background-color: #07020d;
         border-top: 1px solid black;
-        margin: 0px;
         background-size: cover;
         background-position-x: center;
         position: sticky;
         height: 31vh;
         padding-top: 1rem;
-        
+        display: grid;
+    
+        grid-gap: 1rem;
+        margin: 0 auto;
+
     }
         
         
@@ -93,15 +95,9 @@ font-size: 40px;
     
     .paragraph {
         margin: 0px;
-        margin-left: 25px;
     }
     
     
-    
-    .imgDIV{
-        margin-top: 3px;
-        margin-right: 0rem;
-    }
     .msDPT{
         width: 150px;
         height: 60px;
