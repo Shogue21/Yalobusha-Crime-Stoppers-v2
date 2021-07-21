@@ -23,6 +23,7 @@ const Navbar = () => {
                     <div className={`collapse navbar-collapse`} id="navbarNavAltMarkup">
                     <div className={`${styles.collapsed} navbar-nav`}>
                         <Link href="/about"><a className={`${styles.link}`} aria-current="page">About</a></Link>
+                        <Link href="/news"><a className={`${styles.link}`} aria-current="page">News</a></Link>
                         <a className={`${styles.link}`} onClick={scrollToBottom}>Contact</a>
                     </div>
                     </div>

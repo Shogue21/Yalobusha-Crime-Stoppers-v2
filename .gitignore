@@ -34,3 +34,7 @@ yarn-error.log*
 .vercel
 .next/static/chunks/main.js
 .gitignore
+
+
+# .env
+.env
