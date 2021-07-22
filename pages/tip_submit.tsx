@@ -16,6 +16,7 @@ export async function getServerSideProps() {
 async function saveTip(tip: Prisma.TipCreateInput) {
     const response = await fetch('./api/tips', {
         method: 'POST',
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(tip)
     });
 
@@ -32,16 +33,14 @@ const tip_submit = ({initTips}) => {
         <AddTipForm onSubmit={async (data, e) => {
             try {
                 data = {
-                       description: "man",
-                       offenseType: "bad",
-                       address: "123 main st",
-                       nearestIntersection: "main and not main",
-                      neighborhood: "hero",
-                       references: "what",
-                       id: "sdf6g47ebu"
-                      }
-                console.log(e)
-                console.log(data)
+                    description: e.target.description.value,
+                    offenseType: e.target.offenseType.value,
+                    address: e.target.address.value,
+                    nearestIntersection: e.target.intersection.value,
+                    neighborhood: e.target.neighborhood.value,
+                    references: e.target.references.value,
+                }
+                data = JSON.stringify(data)
                 await saveTip(data); //saveTip broken?
                 setTips([...tips, data]);
                 e.target.reset();

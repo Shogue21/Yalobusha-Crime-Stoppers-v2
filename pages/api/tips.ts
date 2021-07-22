@@ -9,10 +9,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     try {
+        console.log(req.body)
         const tip: Prisma.TipCreateInput = JSON.parse(req.body);
         const savedTip = await prisma.tip.create({ data: tip });
         res.status(200).json(savedTip);
       } catch (err) {
+          console.log(err);
         res.status(400).json({ message: 'Something went wrong' });
     
       }
