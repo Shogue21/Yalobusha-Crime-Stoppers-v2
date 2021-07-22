@@ -9,7 +9,7 @@ export const News = ({ articles }) => {
             <h1 className={styles.headers}>No Breaking News!</h1>
             </div>
         <div>
-            <h3 className={styles}>Check out <a className={styles.newsLink} href="https://www.yalnews.com" target="_blank">North Mississippi Herald</a> for local news</h3>
+            <h3 className={styles}>Check out <a className={styles.newsLink} href="https://www.yalnews.com">North Mississippi Herald</a> for local news</h3>
         
             </div>
             </div>
@@ -34,8 +34,8 @@ export const News = ({ articles }) => {
 export const getServerSideProps = async pageContext => {
     
     const apiResponse = await fetch(
-        `https://newsapi.org/v2/everything?q=Yalobusha County news`,
-        {   
+        `https://newsapi.org/v2/everything?q=Yalobusha County `,
+        {
             headers: {
                 Authorization: `${process.env.NEXT_PUBLIC_NEWS_KEY}`,
             },
