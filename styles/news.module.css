@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+
+
+
+.body{
+    background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.headers{
+    color: #C7333C;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.newsLink:link{
+    color: rgb(97, 97, 97);
+}
+
+@media only screen and (max-width: 600px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+  }
+
+
+}
+
+.main {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+  }
+.post {
+    width: 500px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
+  }
+.post img {
+    width: 100%;
+  }
+.postH1 {
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+.paginator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+.paginator div {
+    margin: 25px;
+  }
+.paginator .active {
+    cursor: pointer;
+  }
+.paginator .disabled {
+    cursor: not-allowed;
+    color: rgb(179, 179, 179);
+  }
