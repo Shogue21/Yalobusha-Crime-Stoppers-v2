@@ -5,7 +5,7 @@ import AddTipForm from "./../components/AddTipForm";
 const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
-    const tips = await prisma.tip.findMany();
+    const tips: Tip[] = await prisma.tip.findMany();
     return {
         props: {
             initTips: tips
@@ -14,8 +14,7 @@ export async function getServerSideProps() {
 }
 
 async function saveTip(tip: Prisma.TipCreateInput) {
-    console.log(tip);
-    const response = await fetch('/api/tips', {
+    const response = await fetch('./api/tips', {
         method: 'POST',
         body: JSON.stringify(tip)
     });
@@ -32,12 +31,24 @@ const tip_submit = ({initTips}) => {
     return (
         <AddTipForm onSubmit={async (data, e) => {
             try {
-                await saveTip(data);
+                data = {
+                       description: "man",
+                       offenseType: "bad",
+                       address: "123 main st",
+                       nearestIntersection: "main and not main",
+                      neighborhood: "hero",
+                       references: "what",
+                       id: "sdf6g47ebu"
+                      }
+                console.log(e)
+                console.log(data)
+                await saveTip(data); //saveTip broken?
                 setTips([...tips, data]);
                 e.target.reset();
             }
             catch (err) {
                 console.log(err);
+        
             }
         }}/>
     )
