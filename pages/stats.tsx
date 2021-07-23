@@ -21,14 +21,17 @@ export async function getServerSideProps() {
     console.log((experiment.length/fullList.length)*100 + "% of tips lead to arrest")
     return {
         props: {
-            initTips: tips
+            initTips: tips,
+            initPercent: (experiment.length/fullList.length) * 100,
+            initList: fullList
         }
     }
 }
 
-export default function Index({ initialContacts }) {
+export default function Index({initPercent, initList }) {
+
     return (
-       <p>Stuff is here</p>
+       <p>{initPercent}% of tips lead to arrest</p>
     )
   }
   
