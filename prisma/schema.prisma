@@ -19,4 +19,7 @@ model Tip {
   neighborhood String
   references String
   arrested Boolean @default(false)
+  rewardPaid Int @default(0)
+  isClosed Boolean @default(false)
+
 }
