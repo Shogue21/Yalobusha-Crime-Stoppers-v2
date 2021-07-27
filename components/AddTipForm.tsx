@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import styles from '../styles/tips.module.css'
 
 interface AddTipFormProps {
     onSubmit: any;
@@ -8,7 +9,7 @@ const AddTipForm = (props: AddTipFormProps) => {
 
     const {handleSubmit} = useForm();
     return (
-        <form onSubmit={handleSubmit(props.onSubmit)}>
+        <form onSubmit={handleSubmit(props.onSubmit)} className={styles.body}>
             <label htmlFor="description">Description</label>
             <input id="description" name="description" type="text" required />
             <br />
