@@ -49,7 +49,7 @@ const tip_submit = ({initTips}) => {
                     references: e.target.references.value,
                 }
                 data = JSON.stringify(data)
-                await saveTip(data); //saveTip broken?
+                await saveTip(data);
                 setTips([...tips, data]);
                 e.target.reset();
             }
