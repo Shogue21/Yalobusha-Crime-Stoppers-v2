@@ -48,6 +48,8 @@ const tip_submit = ({initTips}) => {
                     neighborhood: e.target.neighborhood.value,
                     references: e.target.references.value,
                 }
+
+                
                 data = JSON.stringify(data)
                 await saveTip(data);
                 setTips([...tips, data]);
