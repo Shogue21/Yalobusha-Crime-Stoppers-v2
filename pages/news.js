@@ -3,7 +3,7 @@ import styles from '../styles/news.module.css';
 export const News = ({ articles }) => {
     console.log({ articles })
     if (articles.length === 0) {
-        return  <body className={styles.body}>
+        return  <body className={styles.bodyNoNews}>
             <div className={styles.container}>
             <div className={styles.noNews}>
             <h1 className={styles.headers}>No Breaking News!</h1>
@@ -34,7 +34,7 @@ export const News = ({ articles }) => {
 export const getServerSideProps = async pageContext => {
     
     const apiResponse = await fetch(
-        `https://newsapi.org/v2/everything?q=Yalobusha County news`,
+        `https://newsapi.org/v2/everything?q=Yalobusha County`,
         {   
             headers: {
                 Authorization: `${process.env.NEXT_PUBLIC_NEWS_KEY}`,
