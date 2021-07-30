@@ -1,3 +1,50 @@
 .body {
     height: 100vh;
 }
+
+.container{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+
+.labels{
+    padding: 13px;
+}
+
+.DescriptionInput{
+    width:50%;
+    height: 220px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+.DescriptionLabel{
+    padding: 13px;
+    position: relative;
+    bottom: 180px;
+}
+
+.button{
+    background-color:#161616;
+	border-radius: 40px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:11px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+    margin-top: 10px;
+}
+
+.button:hover{
+    background-color:#252729;
+}

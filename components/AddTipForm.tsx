@@ -9,11 +9,12 @@ const AddTipForm = (props: AddTipFormProps) => {
 
     const {handleSubmit} = useForm();
     return (
+        <div className={styles.container}>
         <form onSubmit={handleSubmit(props.onSubmit)} className={styles.body}>
-            <label htmlFor="description">Description</label>
-            <input id="description" name="description" type="text" required />
+            <label htmlFor="description" className={styles.DescriptionLabel}>Description</label>
+            <textarea id="description" name="description" required className={styles.DescriptionInput}/>
             <br />
-            <label htmlFor="offenseType">Offense Type</label>
+            <label htmlFor="offenseType" className={styles.labels}>Offense Type</label>
             <select name="offenseType" id="offenseType" required>
                 <option value="arson">Arson</option>
                 <option value="assault">Assault</option>
@@ -50,20 +51,21 @@ const AddTipForm = (props: AddTipFormProps) => {
                 <option value="weapons">Weapons</option>
             </select>
             <br />
-            <label htmlFor="address">Address of Incident</label>
+            <label htmlFor="address" className={styles.labels}>Address of Incident</label>
             <input id="address" name="address" type="text" />
             <br />
-            <label htmlFor="intersection">Nearest Intersection</label>
+            <label htmlFor="intersection" className={styles.labels}>Nearest Intersection</label>
             <input id="intersection" name="intersection" type="text" />
             <br />
-            <label htmlFor="neighborhood">Neighborhood / Subdivision</label>
+            <label htmlFor="neighborhood" className={styles.labels}>Neighborhood / Subdivision</label>
             <input id="neighborhood" name="neighborhood" type="text" />
             <br />
-            <label htmlFor="references">Links to any online news stories you are reporting in reference to. (copy/paste the URL if possible)</label>
+            <label htmlFor="references" className={styles.labels}>Links to any online news stories you are reporting in reference to. (copy/paste the URL if possible)</label>
             <input id="references" name="references" type="text" />
             <br />
-            <button type="submit">Submit Tip</button>
+            <button type="submit" className={styles.button}>Submit Tip</button>
         </form>
+        </div>
     )
 }
 
