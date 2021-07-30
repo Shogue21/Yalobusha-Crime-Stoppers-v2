@@ -25,6 +25,8 @@ const Navbar = () => {
                         <Link href="/about"><a className={`${styles.link}`} aria-current="page">About</a></Link>
                         <Link href="/news"><a className={`${styles.link}`} aria-current="page">News</a></Link>
                         <Link href="/tip_submit"><a className={styles.link} aria-current="page">Submit a Tip</a></Link>
+                        <Link href="/stats"><a className={`${styles.link}`} aria-current="page">Stats</a></Link>
+
                         <a className={`${styles.link}`} onClick={scrollToBottom}>Contact</a>
                     </div>
                     </div>

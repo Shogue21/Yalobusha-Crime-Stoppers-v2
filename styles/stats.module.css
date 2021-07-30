@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+.stats{
+    padding-top: 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
