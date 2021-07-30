@@ -3,7 +3,7 @@ import styles from '../styles/news.module.css';
 export const News = ({ articles }) => {
     console.log({ articles })
     if (articles.length === 0) {
-        return  <body className={styles.body}>
+        return  <body className={styles.bodyNoNews}>
             <div className={styles.container}>
             <div className={styles.noNews}>
             <h1 className={styles.headers}>No Breaking News!</h1>
