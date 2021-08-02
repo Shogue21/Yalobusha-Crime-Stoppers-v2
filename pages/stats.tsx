@@ -481,14 +481,15 @@ export default class DynamicDoughnut extends React.Component {
       this.setState(getState());
       setInterval(() => {
         this.setState(getState());
-      }, 10000);
+      }, 60000);
   
   }
   render() {
     return (
       <div>
         <h2>Dynamicly refreshed Doughnut Example</h2>
-        <Doughnut data={this.state} width={400} height={400} />
+        <Doughnut className={styles.graphs} data={this.state}/>
+        |
       </div>
     );
   }
