@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "../styles/stats.module.css";
 import React from "react";
 import { UncontrolledCarousel, Row, Col } from "reactstrap";
+import { Doughnut } from "react-chartjs-2";
 
 const prisma = new PrismaClient();
 
@@ -455,288 +456,37 @@ export async function getServerSideProps() {
     },
   };
 }
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-export default function Index({
-  initPercent,
-  initList,
-  totalTips,
-  tipsWithArrest,
-  arsonTips,
-  arsonArrest,
-  assaultTips,
-  assaultArrest,
-  burglaryTips,
-  burglaryArrest,
-  childAbuseTips,
-  childAbuseArrest,
-  childSexualImagesTips,
-  childSexualImagesArrest,
-  civilIssueTips,
-  civilIssueArrest,
-  computerCrimesTips,
-  computerCrimesArrest,
-  covid19Tips,
-  covid19Arrest,
-  criminalMischiefTips,
-  criminalMischeifArrest,
-  criminalTrespassTips,
-  criminalTrespassArrest,
-  disorderlyConductTips,
-  disorderlyConductArrest,
-  dogBiteTips,
-  dogBiteArrest,
-  elderAbuseTips,
-  elderAbuseArrest,
-  forgeryTips,
-  forgeryArrest,
-  harassmentTips,
-  harassmentArrest,
-  homicideTips,
-  homicideArrest,
-  indecentExposureTips,
-  indecentExposureArrest,
-  missingPersonTips,
-  missinsPersonArrest,
-  motorVehicleOffenseTips,
-  motorVehicleOffenseArrest,
-  noiseComplaintTips,
-  noiseComplaintArrest,
-  paroleViolationTips,
-  paroleViolationArrest,
-  policeInformationTips,
-  policeInformationArrest,
-  prostitutionTips,
-  prostitutionArrest,
-  publicPeaceOffenseTips,
-  publicPeaceOffenseArrest,
-  robberyTips,
-  robberyArrest,
-  sexualAssaultTips,
-  sexualAssaultArrest,
-  suspiciousActivityTips,
-  suspiciousActivityArrest,
-  terrorismTips,
-  terrorismArrest,
-  theftTips,
-  theftArrest,
-  underageDrinkingTips,
-  underageDrinkingArrest,
-  vehicleTheftTips,
-  vehicleTheftArrest,
-  wantedPersonTips,
-  wantedPersonArrest,
-  weaponsTips,
-  weaponsArrest,
-}) {
-  return (
-    <div className={`${styles.stats} ${styles.overlay} ${styles.carousel}`}>
-      <div id="carosuel_slide1" tabIndex="0" className={styles.carousel_slide}>
-        <p>Tips Submitted: {totalTips}</p>
-        <p>Tips leading to arrests: {tipsWithArrest}</p>
-        <p>Arson Tips: {arsonTips}</p>
-        <p>Arson Arrests: {arsonArrest}</p>
-        <p>Assualt Tips: {assaultTips}</p>
-        <p>Assault Arrests: {assaultArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide11" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide2" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
+const getState = () => ({
+  labels: ["Tips Submitted", "Tips Leading to Arrest"],
+  datasets: [
+    {
+      data: [],
+      backgroundColor: ["#CCC", "#36A2EB", "#FFCE56"],
+      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+    },
+  ],
+});
+
+export default class DynamicDoughnut extends React.Component {
+  getInitialState() {
+    return getState();
+  }
+
+  componentWillMount() {
+    setInterval(() => {
+      this.setState(getState());
+    }, 10000);
+  }
+  render() {
+    return (
+      <div>
+        <h2>Dynamicly refreshed Doughnut Example</h2>
+        <Doughnut data={this.state} width={400} height={400} />
       </div>
-
-      <div id="carousel_slide2" tabIndex="0" className={styles.carousel_slide}>
-        <p>Burglary Tips: {burglaryTips}</p>
-        <p>Burglary Arrests: {burglaryArrest}</p>
-        <p>Child Abuse/Neglect Tips: {childAbuseTips}</p>
-        <p>Child Abuse/Neglect Arrests: {childAbuseArrest}</p>
-        <p>Child Sexual Images Tips: {childSexualImagesTips}</p>
-        <p>Child Sexual Images Arrests: {childSexualImagesArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide1" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide3" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide3" tabIndex="0" className={styles.carosuel_slide}>
-        <p>Civil Issue Tips: {civilIssueTips}</p>
-        <p>Civil Issue Arrests: {civilIssueArrest}</p>
-        <p>Computer Crime Tips: {computerCrimesTips}</p>
-        <p>Computer Crime Arrests: {computerCrimesArrest}</p>
-        <p>Covid-19 Tips: {covid19Tips}</p>
-        <p>Covid-19 Arrests: {covid19Arrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide2" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide4" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide4" tabIndex="0" className={styles.carousel_slide}>
-        <p>Criminal Mischeif Tips: {criminalMischiefTips}</p>
-        <p>Criminal Mischief Arrests: {criminalMischeifArrest}</p>
-        <p>Criminal Trespass Tips: {criminalTrespassTips}</p>
-        <p>Cirminal Trespass Arrests: {criminalTrespassArrest}</p>
-        <p>Disorderly Conduct Tips: {disorderlyConductTips}</p>
-        <p>Disorderly Conduct Arrests: {disorderlyConductArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide3" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide5" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide5" tabIndex="0" className={styles.carousel_slide}>
-        <p>Dog Bite Tips: {dogBiteTips}</p>
-        <p>Dog Bite Arrests: {dogBiteArrest}</p>
-        <p>Elder Abuse/Neglect Tips: {elderAbuseTips}</p>
-        <p>Elder Abuse/Neglect Arrests: {elderAbuseArrest}</p>
-        <p>Harassment Tips: {harassmentTips}</p>
-        <p>Harassment Arrests: {harassmentArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide4" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide6" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide6" tabIndex="0" classname={styles.carousel_slide}>
-        <p>Homicide Tips: {homicideTips}</p>
-        <p>Homicide Arrests: {homicideArrest}</p>
-        <p>Indecent Exposure Tips: {indecentExposureTips}</p>
-        <p>Indecent Exposure Arrests: {indecentExposureArrest}</p>
-        <p>Missing Person Tips: {missingPersonTips}</p>
-        <p>Missing Person Arrests: {missinsPersonArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide5" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide7" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide7" tabIndex="0" className={styles.carousel_slide}>
-        <p>Motor Vehicle Offenses Tips: {motorVehicleOffenseTips}</p>
-        <p>Motor Vehicle Offenses Arrests: {motorVehicleOffenseArrest}</p>
-        <p>Noise Complaint Tips: {noiseComplaintTips}</p>
-        <p>Noise Complaint Arrests: {noiseComplaintArrest}</p>
-        <p>Parole Violation Tips: {paroleViolationTips}</p>
-        <p>Parole Violation Arrests: {paroleViolationArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide6" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide8" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide8" tabIndex="0" className={styles.carousel_slide}>
-        <p>Police Information Tips: {policeInformationTips}</p>
-        <p>Police Information Arrests: {policeInformationArrest} </p>
-        <p>Prostitution Tips: {prostitutionTips}</p>
-        <p>Prostitution Arrests: {prostitutionArrest}</p>
-        <p>Public Peace Offense Tips: {publicPeaceOffenseTips}</p>
-        <p>Public Peace Offense Arrests: {publicPeaceOffenseArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide7" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide9" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide9" tabIndex="0" className={styles.carousel_slide}>
-        <p>Robbery Tips: {robberyTips}</p>
-        <p>Robbery Arrests: {robberyArrest}</p>
-        <p>Sexual Assault Tips: {sexualAssaultTips}</p>
-        <p>Sexual Assault Arrests: {sexualAssaultArrest}</p>
-        <p>Suspicious Activity Tips: {suspiciousActivityTips}</p>
-        <p>Suspicious Activity Arrests: {suspiciousActivityArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide8" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide10" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide10" tabIndex="0" className={styles.carousel_slide}>
-        <p>Terrorism Tips: {terrorismTips}</p>
-        <p>Terrorism Arrests: {terrorismArrest}</p>
-        <p>Theft Tips: {theftTips}</p>
-        <p>Theft Arrests: {theftArrest}</p>
-        <p>Underage Drinking Party Tips: {underageDrinkingTips}</p>
-        <p>Underage Drinking Party Arrests: {underageDrinkingArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide9" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide11" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <div id="carousel_slide11" tabIndex="0" className={styles.carousel_slide}>
-        <p>Vehicle Theft Tips: {vehicleTheftTips}</p>
-        <p>Vehicle Theft Arrests: {vehicleTheftArrest}</p>
-        <p>Wanted Person Tips: {wantedPersonTips}</p>
-        <p>Wanted Person Arrests: {wantedPersonArrest}</p>
-        <p>Weapon Tips: {weaponsTips}</p>
-        <p>Weapon Arrests: {weaponsArrest}</p>
-        <div className={styles.carousel__snapper}>
-          <a href="#carousel__slide10" className={styles.carousel__prev}>
-            Go to last slide
-          </a>
-          <a href="#carousel__slide1" className={styles.carousel__next}>
-            Go to next slide
-          </a>
-        </div>
-      </div>
-
-      <aside className={styles.carousel__navigation}>
-    <ol className={styles.carousel__navigation_list}>
-      <li className={styles.carousel__navigation_item}>
-        <a href="#carousel__slide1"
-           className={styles.carousel__navigation_button}>Go to slide 1</a>
-      </li>
-      <li className={styles.carousel__navigation_item}>
-        <a href="#carousel__slide2"
-           className={styles.carousel__navigation_button}>Go to slide 2</a>
-      </li>
-      <li className={styles.carousel__navigation_item}>
-        <a href="#carousel__slide3"
-           className={styles.carousel__navigation_button}>Go to slide 3</a>
-      </li>
-      <li className={styles.carousel__navigation_item}>
-        <a href="#carousel__slide4"
-           className={styles.carousel__navigation_button}>Go to slide 4</a>
-      </li>
-    </ol>
-  </aside>
-    </div>
-  );
+    );
+  }
 }
