@@ -464,7 +464,7 @@ const getState = () => ({
   labels: ["Tips Submitted", "Tips Leading to Arrest"],
   datasets: [
     {
-      data: [],
+      data: [150, 700],
       backgroundColor: ["#CCC", "#36A2EB", "#FFCE56"],
       hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
     },
@@ -477,9 +477,11 @@ export default class DynamicDoughnut extends React.Component {
   }
 
   componentWillMount() {
-    setInterval(() => {
       this.setState(getState());
-    }, 10000);
+      setInterval(() => {
+        this.setState(getState());
+      }, 10000);
+  
   }
   render() {
     return (
