@@ -28,8 +28,6 @@ const Navbar = () => {
                         {session && <Link href="/tips"><a className={styles.link} aria-current="page">View Tips</a></Link>}
                         {!session ? <a onClick={() => {signIn();}} className={styles.link} aria-current="page">Sign In</a> : <a onClick={() => {signOut();}} className={styles.link} aria-current="page">Sign Out</a>}
                         <Link href="/stats"><a className={`${styles.link}`} aria-current="page">Stats</a></Link>
-
-                        <a className={`${styles.link}`} onClick={scrollToBottom}>Contact</a>
                     </div>
                     </div>
                 </div>
