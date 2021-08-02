@@ -1,15 +1,15 @@
 import styles from '../styles/navbar.module.css'
 import Link from 'next/link'
+import { signIn, signOut, useSession } from "next-auth/client";
 
 const Navbar = () => {
-    const scrollToBottom = () =>{ 
-        window.scrollTo({ 
-          top: document.documentElement.scrollHeight, 
-          behavior: 'auto'
-        }); 
-      }; 
+    const [session, loading] = useSession();
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
+
     return (
-        
         <nav className={`navbar navbar-expand-lg bg-light navbar-light`}>
             <div className="container-fluid justify-content-between">
                 <div className="d-flex align-items-center">
@@ -25,7 +25,8 @@ const Navbar = () => {
                         <Link href="/about"><a className={`${styles.link}`} aria-current="page">About</a></Link>
                         <Link href="/news"><a className={`${styles.link}`} aria-current="page">News</a></Link>
                         <Link href="/tip_submit"><a className={styles.link} aria-current="page">Submit a Tip</a></Link>
-                        <a className={`${styles.link}`} onClick={scrollToBottom}>Contact</a>
+                        {session && <Link href="/tips"><a className={styles.link} aria-current="page">View Tips</a></Link>}
+                        {!session ? <a onClick={() => {signIn();}} className={styles.link} aria-current="page">Sign In</a> : <a onClick={() => {signOut();}} className={styles.link} aria-current="page">Sign Out</a>}
                     </div>
                     </div>
                 </div>
