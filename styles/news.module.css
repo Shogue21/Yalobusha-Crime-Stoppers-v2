@@ -7,6 +7,15 @@
     background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
     background-size: cover;
     background-repeat: no-repeat;
+   
+}
+
+.bodyNoNews{
+  background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+ 
 }
 
 .headers{
