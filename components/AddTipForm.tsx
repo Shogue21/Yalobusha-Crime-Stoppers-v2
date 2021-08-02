@@ -9,10 +9,9 @@ const AddTipForm = (props: AddTipFormProps) => {
 
     const {handleSubmit} = useForm();
     return (
+        <div className={styles.cardForm}>
         <div className={styles.container}>
         <form onSubmit={handleSubmit(props.onSubmit)} className={styles.body}>
-            <label htmlFor="description" className={styles.DescriptionLabel}>Description</label>
-            <textarea id="description" name="description" required className={styles.DescriptionInput}/>
             <br />
             <label htmlFor="offenseType" className={styles.labels}>Offense Type</label>
             <select name="offenseType" id="offenseType" required>
@@ -63,9 +62,13 @@ const AddTipForm = (props: AddTipFormProps) => {
             <label htmlFor="references" className={styles.labels}>Links to any online news stories you are reporting in reference to. (copy/paste the URL if possible)</label>
             <input id="references" name="references" type="text" />
             <br />
+            <label htmlFor="description" className={styles.DescriptionLabel}>Description</label>
+            <textarea id="description" name="description" required className={styles.DescriptionInput}/>
+            <br />
             <button type="submit" className={styles.button}>Submit Tip</button>
         </form>
         </div>
+</div>
     )
 }
 

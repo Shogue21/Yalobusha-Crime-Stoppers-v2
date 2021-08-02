@@ -3,31 +3,45 @@
 }
 
 .container{
-    border-radius: 5px;
-    background-color: #f2f2f2;
+    border-radius: 1px;
+    margin-right: 5rem;
     padding: 20px;
     text-align: center;
-  }
+    margin: auto;
+    width: 70%;
+    height: 80vh;
+    margin-top: 2rem;
+    background-color: rgb(236, 236, 236);
+    box-shadow: 0 0px 8px 4px rgb(206, 206, 206);
+    transition: 0.3s;
+}
+
+.cardForm{
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
 
 .labels{
     padding: 13px;
 }
 
 .DescriptionInput{
-    width:50%;
-    height: 220px;
+    width:30%;
+    height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
     resize: none;
+    overflow-y: auto;
 }
 
 .DescriptionLabel{
     padding: 13px;
     position: relative;
-    bottom: 180px;
+    bottom: 130px;
 }
 
 .button{

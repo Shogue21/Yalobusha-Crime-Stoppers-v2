@@ -31,20 +31,7 @@ const index = () => {
           </Link>
         </div>
         </div>
-        <div className={styles.twitterFeed}>
-            <TwitterTimelineEmbed
-              sourceType="profile"
-              screenName="YalobushaSO"
-              options={{height: 400}}
-              noFooter
-              noHeader
-            />
-            <div className={styles.twitterFollowButton}>
-            <TwitterFollowButton
-                screenName={'YalobushaSO'}
-              />
-            </div>
-        </div>
+        
       </div>
     </div>
   )
