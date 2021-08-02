@@ -454,17 +454,18 @@ export async function getServerSideProps() {
       weaponsTips: weaponsTips.length,
       weaponsArrest: weaponsArrest.length,
     },
+    
   };
+
+
 }
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 
 const getState = () => ({
   labels: ["Tips Submitted", "Tips Leading to Arrest"],
   datasets: [
     {
-      data: [150, 700],
+      data: [1500, 700],
       backgroundColor: ["#CCC", "#36A2EB", "#FFCE56"],
       hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
     },
