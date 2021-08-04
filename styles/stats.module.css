@@ -11,6 +11,10 @@
 }
 
 .graphs{
-  max-height: 500px!important;
-  max-width: 500px!important;
+  max-height: 300px!important;
+  max-width: 300px!important;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(540px, 1fr));
+  grid-gap: 0rem;
+  margin: 0 auto;
 }

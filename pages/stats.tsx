@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "../styles/stats.module.css";
 import React from "react";
 import { UncontrolledCarousel, Row, Col } from "reactstrap";
-import { Doughnut } from "react-chartjs-2";
+import { Chart, Doughnut } from "react-chartjs-2";
 
 const prisma = new PrismaClient();
 
@@ -437,6 +437,7 @@ export async function getServerSideProps() {
       publicPeaceOffenseTips: publicPeaceOffenseTips.length,
       publicPeaceOffenseArrest: publicPeaceOffenseArrest.length,
       robberyTips: robberyTips.length,
+      robberyArrest: robberyArrest.length,
       sexualAssaultTips: sexualAssaultTips.length,
       sexualAssaultArrest: sexualAssaultArrest.length,
       suspiciousActivityTips: suspiciousActivityTips.length,
@@ -454,42 +455,491 @@ export async function getServerSideProps() {
       weaponsTips: weaponsTips.length,
       weaponsArrest: weaponsArrest.length,
     },
-    
   };
-
-
 }
 
-
-const getState = () => ({
-  labels: ["Tips Submitted", "Tips Leading to Arrest"],
-  datasets: [
-    {
-      data: [1500, 700],
-      backgroundColor: ["#CCC", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-    },
-  ],
-});
-
-export default class DynamicDoughnut extends React.Component {
-  getInitialState() {
-    return getState();
+// const allTipData = (props) => ({
+//   labels: ["Tips Submitted", "Tips Leading to Arrest"],
+//   datasets: [
+//     {
+//       data: [props.totalTips, props.tipsWithArrest],
+//       backgroundColor: ["#36A2EB", "#FF0000"],
+//       hoverBackgroundColor: ["#6abbf0", "#FF6384", "#FFCE56"],
+//     },
+//   ],
+// });
+export default class TipDataCharts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allTips: {
+        labels: ["Tips Submitted", "Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.totalTips, props.tipsWithArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      arsonTips:{
+        labels: ["Arson Tips Submitted", " Arson Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.arsonTips, props.arsonArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      assaultTips:{
+        labels: ["Assault Tips Submitted", " Asssault Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.assaultTips, props.assaultArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      burglaryTips:{
+        labels: ["Burglary Tips Submitted", " Burglary Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.burglaryTipa, props.burglaryArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      childAbuseTips:{
+        labels: ["Child Abuse Tips Submitted", "Child Abuse Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.childAbuseTips, props.childAbuseArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      childSexualImagesTips:{
+        labels: ["Child Sexual Images Tips Submitted", "Child Sexual Images Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.childSexualImagesTips, props.childSexualImagesArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      civilIssueTips:{
+        labels: ["Civil Issue Tips Submitted", "Civil Issue Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.civilIssueTips, props.civilIssueArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      computerCrimesTips:{
+        labels: ["Computer Crimes Tips Submitted", "Computer Crimes Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.computerCrimesTips, props.computerCrimesArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      childAbuseTips:{
+        labels: ["Assault Tips Submitted", " Asssault Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.childAbuseTips, props.childAbuseArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      covid19Tips:{
+        labels: ["COVID-19 Tips Submitted", "COVID-19 Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.covid19Tips, props.covid19Arrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      criminalMischiefTips:{
+        labels: ["Criminal Mischeif Tips Submitted", "Criminal Mischeif Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.criminalMischiefTips, props.criminalMischeifArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      criminalTrespassTips:{
+        labels: ["Criminal Trespass Tips Submitted", "Criminal Trespass Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.criminalTrespassTips, props.criminalTrespassArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      disorderlyConductTips:{
+        labels: ["Disorderly Conduct Tips Submitted", "Disorderly Conduct Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.disorderlyConductTips, props.disorderlyConductArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      dogBiteTips:{
+        labels: ["Dog Bite Tips Submitted", "Dog Bite Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.dogBiteTips, props.dogBiteArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      elderAbuseTips:{
+        labels: ["Elder Abuse Tips Submitted", "Elder Abuse Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.elderAbuseTips, props.elderAbuseArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      forgeryTips:{
+        labels: ["Forgery Tips Submitted", "Forgery Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.forgeryTips, props.forgeryArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      harassmentTips:{
+        labels: ["Harassment Tips Submitted", "Harassment Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.harassmentTips, props.harassmentArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      homicideTips:{
+        labels: ["Homicide Tips Submitted", "Homicide Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.homicideTips, props.homicideArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      indecentExposureTips:{
+        labels: ["Indecent Exposure Tips Submitted", "Indecent Exposure Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.indecentExposureTips, props.indecentExposureArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      missingPersonTips:{
+        labels: ["Missing Person Tips Submitted", "Missing Person Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.missingPersonTips, props.missinsPersonArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      motorVehicleOffenseTips:{
+        labels: ["Motor Vehicle Offenses Tips Submitted", "Motor Vehicle Offesnses Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.motorVehicleOffenseTips, props.motorVehicleOffenseArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      noiseComplaintTips:{
+        labels: ["Noise Complaint Tips Submitted", "Noise Complaint Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.noiseComplaintTips, props.noiseComplaintArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      paroleViolationTips:{
+        labels: ["Parole Violation Tips Submitted", "Parole Violation Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.paroleViolationTips, props.paroleViolationArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      policeInformationTips:{
+        labels: ["Police Information Tips Submitted", "Police Information Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.policeInformationTips, props.policeInformationArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      prostitutionTips:{
+        labels: ["Prostitution Tips Submitted", "Prostitution Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.prostitutionTips, props.prostitutionArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      publicPeaceOffenseTips:{
+        labels: ["Public Peace Offense Tips Submitted", "Public Peace Offense Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.publicPeaceOffenseTips, props.publicPeaceOffenseArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      robberyTips:{
+        labels: ["Robbery Tips Submitted", "Robbery Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.robberyTips, props.robberyArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      sexualAssaultTips:{
+        labels: ["Sexual Assault Tips Submitted", "Sexual Asssault Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.sexualAssaultTips, props.sexualAssaultArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      suspiciousActivityTips:{
+        labels: ["Suspicious Activity Tips Submitted", "Suspicious Activity Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.suspiciousActivityTips, props.suspiciousActivityArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      terrorismTips:{
+        labels: ["Terrorism Tips Submitted", "Terrorism Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.terrorismTips, props.terrorismArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      theftTips:{
+        labels: ["Theft Tips Submitted", "Theft Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.theftTips, props.theftArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      underageDrinkingTips:{
+        labels: ["Underage Drinking Tips Submitted", "Underage Drinking Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.underageDrinkingTips, props.underageDrinkingArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      vehicleTheftTips:{
+        labels: ["Vehicle Theft Tips Submitted", "Vehicle Theft Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.vehicleTheftTips, props.vehicleTheftArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      wantedPersonTips:{
+        labels: ["Wanted Person Tips Submitted", "Wanted Person Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.wantedPersonTips, props.wantedPersonArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+      weaponsTips:{
+        labels: ["Weapons Tips Submitted", "Weapons Tips Leading to Arrest"],
+        datasets: [
+          {
+            data: [props.weaponsTips, props.weaponsArrest],
+            backgroundColor: ["#36A2EB", "#FF0000"],
+            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          },
+        ],
+      },
+    };
   }
 
-  componentWillMount() {
-      this.setState(getState());
-      setInterval(() => {
-        this.setState(getState());
-      }, 60000);
-  
-  }
+  // getInitialState() {
+  //   return allTipData(this.props);
+  // }
+
+  // componentWillMount() {
+  //   this.setState(allTipData(this.props));
+  //   setInterval(() => {
+  //     this.setState(allTipData(this.props));
+  //   }, 30000);
+  // }
   render() {
     return (
       <div>
-        <h2>Dynamicly refreshed Doughnut Example</h2>
-        <Doughnut className={styles.graphs} data={this.state}/>
-        |
+         <div>
+        <Doughnut className={styles.graphs} data={this.state.allTips} />
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.arsonTips} />
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.assaultTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.burglaryTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.childAbuseTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.childSexualImagesTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.civilIssueTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.computerCrimesTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.covid19Tips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.criminalMischiefTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.criminalTrespassTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.disorderlyConductTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.dogBiteTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.elderAbuseTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.forgeryTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.harassmentTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.homicideTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.indecentExposureTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.missingPersonTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.motorVehicleOffenseTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.noiseComplaintTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.paroleViolationTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.policeInformationTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.prostitutionTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.publicPeaceOffenseTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.robberyTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.sexualAssaultTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.suspiciousActivityTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.terrorismTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.theftTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.underageDrinkingTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.vehicleTheftTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.wantedPersonTips}/>
+        </div>
+        <div>
+        <Doughnut className={styles.graphs} data={this.state.weaponsTips}/>
+        </div>
       </div>
     );
   }
