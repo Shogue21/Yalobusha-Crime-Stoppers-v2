@@ -2,6 +2,7 @@ import styles from '../styles/home.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import BackgroundSlider from 'react-background-slider'
 
 const index = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -14,7 +15,9 @@ const index = () => {
 
   return (
     <div className={styles.landing}>
+      <div className={styles.overlay}></div>
       <div className={styles.center}>
+      <BackgroundSlider images={["watervalley1.jpg", "coffeeville1.jpeg", "oakland1.jpeg", "coffeeville2.jpeg", "oakland2.jpeg", "watervalley2.jpeg", "coffeeville3.jpeg", "yalobusha.jpeg", "oakland3.jpeg", "coffeeville4.jpeg"]} transition={1} duration={5}/>
         <div className={styles.main}>
         <h1 className={styles.text}>Yalobusha County Crime Stoppers</h1>
         <p className={styles.slogan}>If you see something, or hear something, say something!</p>
