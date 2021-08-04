@@ -21,9 +21,8 @@ export async function getServerSideProps() {
     where: {
       offenseType: "Arson" || "arson",
     },
-    
   });
-  console.log("arson Tips: " + arsonTips.length)
+  console.log("arson Tips: " + arsonTips.length);
   const arsonArrest = await prisma.tip.findMany({
     where: {
       offenseType: "Arson",
@@ -461,8 +460,6 @@ export async function getServerSideProps() {
   };
 }
 
-
-
 // const allTipData = (props) => ({
 //   labels: ["Tips Submitted", "Tips Leading to Arrest"],
 //   datasets: [
@@ -482,12 +479,12 @@ export default class TipDataCharts extends React.Component {
         datasets: [
           {
             data: [props.totalTips, props.tipsWithArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
+            backgroundColor: ["#168edf", "#F5F242"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
           },
         ],
       },
-      arsonTips:{
+      arsonTips: {
         labels: ["Arson Tips Submitted", " Arson Tips Leading to Arrest"],
         datasets: [
           {
@@ -497,7 +494,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      assaultTips:{
+      assaultTips: {
         labels: ["Assault Tips Submitted", " Asssault Tips Leading to Arrest"],
         datasets: [
           {
@@ -507,7 +504,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      burglaryTips:{
+      burglaryTips: {
         labels: ["Burglary Tips Submitted", " Burglary Tips Leading to Arrest"],
         datasets: [
           {
@@ -517,8 +514,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      childAbuseTips:{
-        labels: ["Child Abuse Tips Submitted", "Child Abuse Tips Leading to Arrest"],
+      childAbuseTips: {
+        labels: [
+          "Child Abuse Tips Submitted",
+          "Child Abuse Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.childAbuseTips, props.childAbuseArrest],
@@ -527,8 +527,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      childSexualImagesTips:{
-        labels: ["Child Sexual Images Tips Submitted", "Child Sexual Images Tips Leading to Arrest"],
+      childSexualImagesTips: {
+        labels: [
+          "Child Sexual Images Tips Submitted",
+          "Child Sexual Images Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.childSexualImagesTips, props.childSexualImagesArrest],
@@ -537,8 +540,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      civilIssueTips:{
-        labels: ["Civil Issue Tips Submitted", "Civil Issue Tips Leading to Arrest"],
+      civilIssueTips: {
+        labels: [
+          "Civil Issue Tips Submitted",
+          "Civil Issue Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.civilIssueTips, props.civilIssueArrest],
@@ -547,8 +553,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      computerCrimesTips:{
-        labels: ["Computer Crimes Tips Submitted", "Computer Crimes Tips Leading to Arrest"],
+      computerCrimesTips: {
+        labels: [
+          "Computer Crimes Tips Submitted",
+          "Computer Crimes Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.computerCrimesTips, props.computerCrimesArrest],
@@ -557,17 +566,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      childAbuseTips:{
-        labels: ["Assault Tips Submitted", " Asssault Tips Leading to Arrest"],
-        datasets: [
-          {
-            data: [props.childAbuseTips, props.childAbuseArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      covid19Tips:{
+      covid19Tips: {
         labels: ["COVID-19 Tips Submitted", "COVID-19 Tips Leading to Arrest"],
         datasets: [
           {
@@ -577,8 +576,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      criminalMischiefTips:{
-        labels: ["Criminal Mischief Tips Submitted", "Criminal Mischief Tips Leading to Arrest"],
+      criminalMischiefTips: {
+        labels: [
+          "Criminal Mischief Tips Submitted",
+          "Criminal Mischief Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.criminalMischiefTips, props.criminalMischeifArrest],
@@ -587,8 +589,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      criminalTrespassTips:{
-        labels: ["Criminal Trespass Tips Submitted", "Criminal Trespass Tips Leading to Arrest"],
+      criminalTrespassTips: {
+        labels: [
+          "Criminal Trespass Tips Submitted",
+          "Criminal Trespass Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.criminalTrespassTips, props.criminalTrespassArrest],
@@ -597,8 +602,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      disorderlyConductTips:{
-        labels: ["Disorderly Conduct Tips Submitted", "Disorderly Conduct Tips Leading to Arrest"],
+      disorderlyConductTips: {
+        labels: [
+          "Disorderly Conduct Tips Submitted",
+          "Disorderly Conduct Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.disorderlyConductTips, props.disorderlyConductArrest],
@@ -607,7 +615,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      dogBiteTips:{
+      dogBiteTips: {
         labels: ["Dog Bite Tips Submitted", "Dog Bite Tips Leading to Arrest"],
         datasets: [
           {
@@ -617,8 +625,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      elderAbuseTips:{
-        labels: ["Elder Abuse Tips Submitted", "Elder Abuse Tips Leading to Arrest"],
+      elderAbuseTips: {
+        labels: [
+          "Elder Abuse Tips Submitted",
+          "Elder Abuse Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.elderAbuseTips, props.elderAbuseArrest],
@@ -627,7 +638,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      forgeryTips:{
+      forgeryTips: {
         labels: ["Forgery Tips Submitted", "Forgery Tips Leading to Arrest"],
         datasets: [
           {
@@ -637,8 +648,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      harassmentTips:{
-        labels: ["Harassment Tips Submitted", "Harassment Tips Leading to Arrest"],
+      harassmentTips: {
+        labels: [
+          "Harassment Tips Submitted",
+          "Harassment Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.harassmentTips, props.harassmentArrest],
@@ -647,7 +661,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      homicideTips:{
+      homicideTips: {
         labels: ["Homicide Tips Submitted", "Homicide Tips Leading to Arrest"],
         datasets: [
           {
@@ -657,8 +671,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      indecentExposureTips:{
-        labels: ["Indecent Exposure Tips Submitted", "Indecent Exposure Tips Leading to Arrest"],
+      indecentExposureTips: {
+        labels: [
+          "Indecent Exposure Tips Submitted",
+          "Indecent Exposure Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.indecentExposureTips, props.indecentExposureArrest],
@@ -667,8 +684,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      missingPersonTips:{
-        labels: ["Missing Person Tips Submitted", "Missing Person Tips Leading to Arrest"],
+      missingPersonTips: {
+        labels: [
+          "Missing Person Tips Submitted",
+          "Missing Person Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.missingPersonTips, props.missinsPersonArrest],
@@ -677,18 +697,27 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      motorVehicleOffenseTips:{
-        labels: ["Motor Vehicle Offenses Tips Submitted", "Motor Vehicle Offesnses Tips Leading to Arrest"],
+      motorVehicleOffenseTips: {
+        labels: [
+          "Motor Vehicle Offenses Tips Submitted",
+          "Motor Vehicle Offesnses Tips Leading to Arrest",
+        ],
         datasets: [
           {
-            data: [props.motorVehicleOffenseTips, props.motorVehicleOffenseArrest],
+            data: [
+              props.motorVehicleOffenseTips,
+              props.motorVehicleOffenseArrest,
+            ],
             backgroundColor: ["#36A2EB", "#FF0000"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
           },
         ],
       },
-      noiseComplaintTips:{
-        labels: ["Noise Complaint Tips Submitted", "Noise Complaint Tips Leading to Arrest"],
+      noiseComplaintTips: {
+        labels: [
+          "Noise Complaint Tips Submitted",
+          "Noise Complaint Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.noiseComplaintTips, props.noiseComplaintArrest],
@@ -697,8 +726,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      paroleViolationTips:{
-        labels: ["Parole Violation Tips Submitted", "Parole Violation Tips Leading to Arrest"],
+      paroleViolationTips: {
+        labels: [
+          "Parole Violation Tips Submitted",
+          "Parole Violation Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.paroleViolationTips, props.paroleViolationArrest],
@@ -707,8 +739,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      policeInformationTips:{
-        labels: ["Police Information Tips Submitted", "Police Information Tips Leading to Arrest"],
+      policeInformationTips: {
+        labels: [
+          "Police Information Tips Submitted",
+          "Police Information Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.policeInformationTips, props.policeInformationArrest],
@@ -717,8 +752,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      prostitutionTips:{
-        labels: ["Prostitution Tips Submitted", "Prostitution Tips Leading to Arrest"],
+      prostitutionTips: {
+        labels: [
+          "Prostitution Tips Submitted",
+          "Prostitution Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.prostitutionTips, props.prostitutionArrest],
@@ -727,17 +765,23 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      publicPeaceOffenseTips:{
-        labels: ["Public Peace Offense Tips Submitted", "Public Peace Offense Tips Leading to Arrest"],
+      publicPeaceOffenseTips: {
+        labels: [
+          "Public Peace Offense Tips Submitted",
+          "Public Peace Offense Tips Leading to Arrest",
+        ],
         datasets: [
           {
-            data: [props.publicPeaceOffenseTips, props.publicPeaceOffenseArrest],
+            data: [
+              props.publicPeaceOffenseTips,
+              props.publicPeaceOffenseArrest,
+            ],
             backgroundColor: ["#36A2EB", "#FF0000"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
           },
         ],
       },
-      robberyTips:{
+      robberyTips: {
         labels: ["Robbery Tips Submitted", "Robbery Tips Leading to Arrest"],
         datasets: [
           {
@@ -747,8 +791,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      sexualAssaultTips:{
-        labels: ["Sexual Assault Tips Submitted", "Sexual Asssault Tips Leading to Arrest"],
+      sexualAssaultTips: {
+        labels: [
+          "Sexual Assault Tips Submitted",
+          "Sexual Asssault Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.sexualAssaultTips, props.sexualAssaultArrest],
@@ -757,18 +804,27 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      suspiciousActivityTips:{
-        labels: ["Suspicious Activity Tips Submitted", "Suspicious Activity Tips Leading to Arrest"],
+      suspiciousActivityTips: {
+        labels: [
+          "Suspicious Activity Tips Submitted",
+          "Suspicious Activity Tips Leading to Arrest",
+        ],
         datasets: [
           {
-            data: [props.suspiciousActivityTips, props.suspiciousActivityArrest],
+            data: [
+              props.suspiciousActivityTips,
+              props.suspiciousActivityArrest,
+            ],
             backgroundColor: ["#36A2EB", "#FF0000"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
           },
         ],
       },
-      terrorismTips:{
-        labels: ["Terrorism Tips Submitted", "Terrorism Tips Leading to Arrest"],
+      terrorismTips: {
+        labels: [
+          "Terrorism Tips Submitted",
+          "Terrorism Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.terrorismTips, props.terrorismArrest],
@@ -777,7 +833,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      theftTips:{
+      theftTips: {
         labels: ["Theft Tips Submitted", "Theft Tips Leading to Arrest"],
         datasets: [
           {
@@ -787,8 +843,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      underageDrinkingTips:{
-        labels: ["Underage Drinking Tips Submitted", "Underage Drinking Tips Leading to Arrest"],
+      underageDrinkingTips: {
+        labels: [
+          "Underage Drinking Tips Submitted",
+          "Underage Drinking Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.underageDrinkingTips, props.underageDrinkingArrest],
@@ -797,8 +856,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      vehicleTheftTips:{
-        labels: ["Vehicle Theft Tips Submitted", "Vehicle Theft Tips Leading to Arrest"],
+      vehicleTheftTips: {
+        labels: [
+          "Vehicle Theft Tips Submitted",
+          "Vehicle Theft Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.vehicleTheftTips, props.vehicleTheftArrest],
@@ -807,8 +869,11 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      wantedPersonTips:{
-        labels: ["Wanted Person Tips Submitted", "Wanted Person Tips Leading to Arrest"],
+      wantedPersonTips: {
+        labels: [
+          "Wanted Person Tips Submitted",
+          "Wanted Person Tips Leading to Arrest",
+        ],
         datasets: [
           {
             data: [props.wantedPersonTips, props.wantedPersonArrest],
@@ -817,7 +882,7 @@ export default class TipDataCharts extends React.Component {
           },
         ],
       },
-      weaponsTips:{
+      weaponsTips: {
         labels: ["Weapons Tips Submitted", "Weapons Tips Leading to Arrest"],
         datasets: [
           {
@@ -829,7 +894,6 @@ export default class TipDataCharts extends React.Component {
       },
     };
   }
-
 
   // getInitialState() {
   //   return allTipData(this.props);
@@ -843,115 +907,147 @@ export default class TipDataCharts extends React.Component {
   // }
   render() {
     return (
-      
       <div>
+
+        <div className={styles.parentContainer}>
+        <div>
+          <Pie className={styles.graphs} data={this.state.allTips} />
+        </div>
+        <div>
+          <Pie className={styles.graphs} data={this.state.arsonTips} />
+        </div>
         
-         <div>
-        <Pie className={styles.graphs} data={this.state.allTips} />
+        <div>
+          <Pie className={styles.graphs} data={this.state.assaultTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.arsonTips} />
+          <Pie className={styles.graphs} data={this.state.burglaryTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.assaultTips}/>
+          <Pie className={styles.graphs} data={this.state.childAbuseTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.burglaryTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.childSexualImagesTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.childAbuseTips}/>
+          <Pie className={styles.graphs} data={this.state.civilIssueTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.childSexualImagesTips}/>
+          <Pie className={styles.graphs} data={this.state.computerCrimesTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.civilIssueTips}/>
+          <Pie className={styles.graphs} data={this.state.covid19Tips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.computerCrimesTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.criminalMischiefTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.covid19Tips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.criminalTrespassTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.criminalMischiefTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.disorderlyConductTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.criminalTrespassTips}/>
+          <Pie className={styles.graphs} data={this.state.dogBiteTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.disorderlyConductTips}/>
+          <Pie className={styles.graphs} data={this.state.elderAbuseTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.dogBiteTips}/>
+          <Pie className={styles.graphs} data={this.state.forgeryTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.elderAbuseTips}/>
+          <Pie className={styles.graphs} data={this.state.harassmentTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.forgeryTips}/>
+          <Pie className={styles.graphs} data={this.state.homicideTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.harassmentTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.indecentExposureTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.homicideTips}/>
+          <Pie className={styles.graphs} data={this.state.missingPersonTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.indecentExposureTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.motorVehicleOffenseTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.missingPersonTips}/>
+          <Pie className={styles.graphs} data={this.state.noiseComplaintTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.motorVehicleOffenseTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.paroleViolationTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.noiseComplaintTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.policeInformationTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.paroleViolationTips}/>
+          <Pie className={styles.graphs} data={this.state.prostitutionTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.policeInformationTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.publicPeaceOffenseTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.prostitutionTips}/>
+          <Pie className={styles.graphs} data={this.state.robberyTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.publicPeaceOffenseTips}/>
+          <Pie className={styles.graphs} data={this.state.sexualAssaultTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.robberyTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.suspiciousActivityTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.sexualAssaultTips}/>
+          <Pie className={styles.graphs} data={this.state.terrorismTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.suspiciousActivityTips}/>
+          <Pie className={styles.graphs} data={this.state.theftTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.terrorismTips}/>
+          <Pie
+            className={styles.graphs}
+            data={this.state.underageDrinkingTips}
+          />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.theftTips}/>
+          <Pie className={styles.graphs} data={this.state.vehicleTheftTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.underageDrinkingTips}/>
+          <Pie className={styles.graphs} data={this.state.wantedPersonTips} />
         </div>
         <div>
-        <Pie className={styles.graphs} data={this.state.vehicleTheftTips}/>
+          <Pie className={styles.graphs} data={this.state.weaponsTips} />
         </div>
-        <div>
-        <Pie className={styles.graphs} data={this.state.wantedPersonTips}/>
-        </div>
-        <div>
-        <Pie className={styles.graphs} data={this.state.weaponsTips}/>
         </div>
       </div>
     );
-
-
-    
   }
 }
