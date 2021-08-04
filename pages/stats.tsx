@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "../styles/stats.module.css";
 import React from "react";
 import { UncontrolledCarousel, Row, Col } from "reactstrap";
-import { Chart, Doughnut } from "react-chartjs-2";
+import { Chart, Doughnut, Pie } from "react-chartjs-2";
 
 const prisma = new PrismaClient();
 
@@ -19,9 +19,11 @@ export async function getServerSideProps() {
   const fullList = await prisma.tip.findMany();
   const arsonTips = await prisma.tip.findMany({
     where: {
-      offenseType: "Arson",
+      offenseType: "Arson" || "arson",
     },
+    
   });
+  console.log("arson Tips: " + arsonTips.length)
   const arsonArrest = await prisma.tip.findMany({
     where: {
       offenseType: "Arson",
@@ -105,14 +107,15 @@ export async function getServerSideProps() {
       arrested: true,
     },
   });
+
   const criminalMischiefTips = await prisma.tip.findMany({
     where: {
-      offenseType: "Criminal Mischeif",
+      offenseType: "Criminal Mischief",
     },
   });
   const criminalMischeifArrest = await prisma.tip.findMany({
     where: {
-      offenseType: "Criminal Mischeif",
+      offenseType: "Criminal Mischief",
       arrested: true,
     },
   });
@@ -458,6 +461,8 @@ export async function getServerSideProps() {
   };
 }
 
+
+
 // const allTipData = (props) => ({
 //   labels: ["Tips Submitted", "Tips Leading to Arrest"],
 //   datasets: [
@@ -506,7 +511,7 @@ export default class TipDataCharts extends React.Component {
         labels: ["Burglary Tips Submitted", " Burglary Tips Leading to Arrest"],
         datasets: [
           {
-            data: [props.burglaryTipa, props.burglaryArrest],
+            data: [props.burglaryTips, props.burglaryArrest],
             backgroundColor: ["#36A2EB", "#FF0000"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
           },
@@ -573,7 +578,7 @@ export default class TipDataCharts extends React.Component {
         ],
       },
       criminalMischiefTips:{
-        labels: ["Criminal Mischeif Tips Submitted", "Criminal Mischeif Tips Leading to Arrest"],
+        labels: ["Criminal Mischief Tips Submitted", "Criminal Mischief Tips Leading to Arrest"],
         datasets: [
           {
             data: [props.criminalMischiefTips, props.criminalMischeifArrest],
@@ -825,6 +830,7 @@ export default class TipDataCharts extends React.Component {
     };
   }
 
+
   // getInitialState() {
   //   return allTipData(this.props);
   // }
@@ -833,114 +839,119 @@ export default class TipDataCharts extends React.Component {
   //   this.setState(allTipData(this.props));
   //   setInterval(() => {
   //     this.setState(allTipData(this.props));
-  //   }, 30000);
+  //   }, 10000);
   // }
   render() {
     return (
+      
       <div>
+        
          <div>
-        <Doughnut className={styles.graphs} data={this.state.allTips} />
+        <Pie className={styles.graphs} data={this.state.allTips} />
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.arsonTips} />
+        <Pie className={styles.graphs} data={this.state.arsonTips} />
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.assaultTips}/>
+        <Pie className={styles.graphs} data={this.state.assaultTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.burglaryTips}/>
+        <Pie className={styles.graphs} data={this.state.burglaryTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.childAbuseTips}/>
+        <Pie className={styles.graphs} data={this.state.childAbuseTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.childSexualImagesTips}/>
+        <Pie className={styles.graphs} data={this.state.childSexualImagesTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.civilIssueTips}/>
+        <Pie className={styles.graphs} data={this.state.civilIssueTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.computerCrimesTips}/>
+        <Pie className={styles.graphs} data={this.state.computerCrimesTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.covid19Tips}/>
+        <Pie className={styles.graphs} data={this.state.covid19Tips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.criminalMischiefTips}/>
+        <Pie className={styles.graphs} data={this.state.criminalMischiefTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.criminalTrespassTips}/>
+        <Pie className={styles.graphs} data={this.state.criminalTrespassTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.disorderlyConductTips}/>
+        <Pie className={styles.graphs} data={this.state.disorderlyConductTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.dogBiteTips}/>
+        <Pie className={styles.graphs} data={this.state.dogBiteTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.elderAbuseTips}/>
+        <Pie className={styles.graphs} data={this.state.elderAbuseTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.forgeryTips}/>
+        <Pie className={styles.graphs} data={this.state.forgeryTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.harassmentTips}/>
+        <Pie className={styles.graphs} data={this.state.harassmentTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.homicideTips}/>
+        <Pie className={styles.graphs} data={this.state.homicideTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.indecentExposureTips}/>
+        <Pie className={styles.graphs} data={this.state.indecentExposureTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.missingPersonTips}/>
+        <Pie className={styles.graphs} data={this.state.missingPersonTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.motorVehicleOffenseTips}/>
+        <Pie className={styles.graphs} data={this.state.motorVehicleOffenseTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.noiseComplaintTips}/>
+        <Pie className={styles.graphs} data={this.state.noiseComplaintTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.paroleViolationTips}/>
+        <Pie className={styles.graphs} data={this.state.paroleViolationTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.policeInformationTips}/>
+        <Pie className={styles.graphs} data={this.state.policeInformationTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.prostitutionTips}/>
+        <Pie className={styles.graphs} data={this.state.prostitutionTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.publicPeaceOffenseTips}/>
+        <Pie className={styles.graphs} data={this.state.publicPeaceOffenseTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.robberyTips}/>
+        <Pie className={styles.graphs} data={this.state.robberyTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.sexualAssaultTips}/>
+        <Pie className={styles.graphs} data={this.state.sexualAssaultTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.suspiciousActivityTips}/>
+        <Pie className={styles.graphs} data={this.state.suspiciousActivityTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.terrorismTips}/>
+        <Pie className={styles.graphs} data={this.state.terrorismTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.theftTips}/>
+        <Pie className={styles.graphs} data={this.state.theftTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.underageDrinkingTips}/>
+        <Pie className={styles.graphs} data={this.state.underageDrinkingTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.vehicleTheftTips}/>
+        <Pie className={styles.graphs} data={this.state.vehicleTheftTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.wantedPersonTips}/>
+        <Pie className={styles.graphs} data={this.state.wantedPersonTips}/>
         </div>
         <div>
-        <Doughnut className={styles.graphs} data={this.state.weaponsTips}/>
+        <Pie className={styles.graphs} data={this.state.weaponsTips}/>
         </div>
       </div>
     );
+
+
+    
   }
 }
