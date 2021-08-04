@@ -1,5 +1,6 @@
 import { getSession } from "next-auth/client"
 import { Prisma, PrismaClient, Tip } from "@prisma/client";
+import styles from '../styles/tips.module.css'
 
 const prisma = new PrismaClient();
 
@@ -31,7 +32,7 @@ const tips = ({session, allTips}) => {
     if (session) {
         console.log(session)
             return (
-                <div>
+                <div className={styles.body}>
                     <table className="table table-striped table-hover">
                         <thead>
                             <tr>

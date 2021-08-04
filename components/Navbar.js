@@ -6,7 +6,7 @@ const Navbar = () => {
     const [session, loading] = useSession();
 
     return (
-        <nav className={`navbar navbar-expand-lg bg-light navbar-light`}>
+        <nav className={`navbar navbar-expand-lg navbar-light ${styles.nav}`}>
             <div className="container-fluid justify-content-between">
                 <div className="d-flex align-items-center">
                     <Link href="/"><a className={styles.noDecor}><img className={styles.logo} src="logo.gif"></img></a></Link>

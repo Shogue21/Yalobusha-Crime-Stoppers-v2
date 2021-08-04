@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import styles from '../styles/tips.module.css'
+import styles from '../styles/tipsubmit.module.css'
 
 interface AddTipFormProps {
     onSubmit: any;
