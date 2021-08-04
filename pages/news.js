@@ -34,7 +34,7 @@ export const News = ({ articles }) => {
 export const getServerSideProps = async pageContext => {
     
     const apiResponse = await fetch(
-        `https://newsapi.org/v2/everything?q=Yalobusha County`,
+        `https://newsapi.org/v2/everything?q=Mississippi `,
         {   
             headers: {
                 Authorization: `${process.env.NEXT_PUBLIC_NEWS_KEY}`,

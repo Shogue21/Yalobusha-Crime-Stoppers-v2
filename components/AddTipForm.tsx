@@ -60,7 +60,7 @@ const AddTipForm = (props: AddTipFormProps) => {
             <input id="neighborhood" name="neighborhood" type="text" />
             <br />
             <label htmlFor="references" className={styles.labels}>Links to any online news stories you are reporting in reference to. (copy/paste the URL if possible)</label>
-            <input id="references" name="references" type="text" />
+            <input id="references" name="references" type="text" className={styles.inputRef} />
             <br />
             <label htmlFor="description" className={styles.DescriptionLabel}>Description</label>
             <textarea id="description" name="description" required className={styles.DescriptionInput}/>
