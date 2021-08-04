@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method !== "POST") {
-        return res.status(405).json({message: "Method not allowed"});
+        return res.status(404).json({message: "Method does not exist"});
     }
 
     try {

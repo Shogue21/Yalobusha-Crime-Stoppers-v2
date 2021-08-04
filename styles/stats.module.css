@@ -11,6 +11,6 @@
 }
 
 .graphs{
-  height: 700px!important;
-  width: 700px!important;
+  max-height: 500px!important;
+  max-width: 500px!important;
 }

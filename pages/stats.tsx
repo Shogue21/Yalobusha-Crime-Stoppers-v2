@@ -454,17 +454,18 @@ export async function getServerSideProps() {
       weaponsTips: weaponsTips.length,
       weaponsArrest: weaponsArrest.length,
     },
+    
   };
+
+
 }
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 
 const getState = () => ({
   labels: ["Tips Submitted", "Tips Leading to Arrest"],
   datasets: [
     {
-      data: [150, 700],
+      data: [1500, 700],
       backgroundColor: ["#CCC", "#36A2EB", "#FFCE56"],
       hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
     },
@@ -480,14 +481,15 @@ export default class DynamicDoughnut extends React.Component {
       this.setState(getState());
       setInterval(() => {
         this.setState(getState());
-      }, 10000);
+      }, 60000);
   
   }
   render() {
     return (
       <div>
         <h2>Dynamicly refreshed Doughnut Example</h2>
-        <Doughnut data={this.state} width={400} height={400} />
+        <Doughnut className={styles.graphs} data={this.state}/>
+        |
       </div>
     );
   }
