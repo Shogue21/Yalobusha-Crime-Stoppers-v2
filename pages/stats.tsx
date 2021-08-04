@@ -19,9 +19,11 @@ export async function getServerSideProps() {
   const fullList = await prisma.tip.findMany();
   const arsonTips = await prisma.tip.findMany({
     where: {
-      offenseType: "Arson",
+      offenseType: "Arson" || "arson",
     },
+    
   });
+  console.log("arson Tips: " + arsonTips.length)
   const arsonArrest = await prisma.tip.findMany({
     where: {
       offenseType: "Arson",
@@ -105,14 +107,15 @@ export async function getServerSideProps() {
       arrested: true,
     },
   });
+
   const criminalMischiefTips = await prisma.tip.findMany({
     where: {
-      offenseType: "Criminal Mischeif",
+      offenseType: "Criminal Mischief",
     },
   });
   const criminalMischeifArrest = await prisma.tip.findMany({
     where: {
-      offenseType: "Criminal Mischeif",
+      offenseType: "Criminal Mischief",
       arrested: true,
     },
   });
@@ -458,6 +461,8 @@ export async function getServerSideProps() {
   };
 }
 
+
+
 // const allTipData = (props) => ({
 //   labels: ["Tips Submitted", "Tips Leading to Arrest"],
 //   datasets: [
@@ -506,7 +511,7 @@ export default class TipDataCharts extends React.Component {
         labels: ["Burglary Tips Submitted", " Burglary Tips Leading to Arrest"],
         datasets: [
           {
-            data: [props.burglaryTipa, props.burglaryArrest],
+            data: [props.burglaryTips, props.burglaryArrest],
             backgroundColor: ["#36A2EB", "#FF0000"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
           },
@@ -573,7 +578,7 @@ export default class TipDataCharts extends React.Component {
         ],
       },
       criminalMischiefTips:{
-        labels: ["Criminal Mischeif Tips Submitted", "Criminal Mischeif Tips Leading to Arrest"],
+        labels: ["Criminal Mischief Tips Submitted", "Criminal Mischief Tips Leading to Arrest"],
         datasets: [
           {
             data: [props.criminalMischiefTips, props.criminalMischeifArrest],
@@ -825,6 +830,7 @@ export default class TipDataCharts extends React.Component {
     };
   }
 
+
   // getInitialState() {
   //   return allTipData(this.props);
   // }
@@ -833,11 +839,13 @@ export default class TipDataCharts extends React.Component {
   //   this.setState(allTipData(this.props));
   //   setInterval(() => {
   //     this.setState(allTipData(this.props));
-  //   }, 30000);
+  //   }, 10000);
   // }
   render() {
     return (
+      
       <div>
+        
          <div>
         <Doughnut className={styles.graphs} data={this.state.allTips} />
         </div>
@@ -942,5 +950,8 @@ export default class TipDataCharts extends React.Component {
         </div>
       </div>
     );
+
+
+    
   }
 }
