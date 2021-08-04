@@ -2,23 +2,16 @@ import styles from '../styles/home.module.css'
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
-import {TwitterFollowButton} from 'react-twitter-embed';
-import { signIn, signOut, useSession } from "next-auth/client";
 
 const index = () => {
   const [isHovered, setIsHovered] = useState(false);
   const toggleHover = () => setIsHovered(!isHovered);
-  const [session, loading] = useSession();
 
   const variants = {
     hovered: {scale: 1.5},
     nonHovered: {scale: 1}
   }
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
   return (
     <div className={styles.landing}>
       <div className={styles.center}>

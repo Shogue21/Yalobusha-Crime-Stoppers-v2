@@ -38,5 +38,15 @@ const options = {
   adapter: PrismaAdapter(prisma),
   session: {
     jwt: true,
-  }
+  },
+  callbacks: {
+    session(session, payload) {
+      if (payload.account) session.user = payload.account
+      return session
+    },
+    jwt(token, account, user, userInfo) {
+      if (userInfo) token.account = userInfo
+      return token
+    },
+  },
 };

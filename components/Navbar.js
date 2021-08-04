@@ -5,10 +5,6 @@ import { signIn, signOut, useSession } from "next-auth/client";
 const Navbar = () => {
     const [session, loading] = useSession();
 
-    if (loading) {
-        return <div>Loading...</div>
-    }
-
     return (
         <nav className={`navbar navbar-expand-lg bg-light navbar-light`}>
             <div className="container-fluid justify-content-between">
@@ -26,8 +22,8 @@ const Navbar = () => {
                         <Link href="/news"><a className={`${styles.link}`} aria-current="page">News</a></Link>
                         <Link href="/tip_submit"><a className={styles.link} aria-current="page">Submit a Tip</a></Link>
                         {session && <Link href="/tips"><a className={styles.link} aria-current="page">View Tips</a></Link>}
-                        {!session ? <a onClick={() => {signIn();}} className={styles.link} aria-current="page">Sign In</a> : <a onClick={() => {signOut();}} className={styles.link} aria-current="page">Sign Out</a>}
                         <Link href="/stats"><a className={`${styles.link}`} aria-current="page">Stats</a></Link>
+                        {!session ? <a onClick={() => {signIn();}} className={styles.link} aria-current="page">Sign In</a> : <a onClick={() => {signOut();}} className={styles.link} aria-current="page">Sign Out</a>}
                     </div>
                     </div>
                 </div>
