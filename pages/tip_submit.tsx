@@ -6,14 +6,6 @@ const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
     const tips: Tip[] = await prisma.tip.findMany();
-    const experiment = await prisma.tip.findMany({
-        where: {
-            neighborhood: {
-                contains: 'water valley'
-            },
-        }
-    })
-    console.log(experiment);
     return {
         props: {
             initTips: tips

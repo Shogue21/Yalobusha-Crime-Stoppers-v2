@@ -1,3 +1,7 @@
 .body {
     background-color: white;
 }
+
+.vh75 {
+    height: 75vh;
+}

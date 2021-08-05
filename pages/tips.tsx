@@ -18,7 +18,7 @@ export async function getServerSideProps(ctx) {
 const tips = ({session, allTips}) => {
     const renderTips = () => {
         return allTips.map(tip => 
-            <tr>
+            <tr key={tip.id}>
                 <td>{tip.description}</td>
                 <td>{tip.offenseType}</td>
                 <td>{tip.address}</td>
@@ -30,10 +30,9 @@ const tips = ({session, allTips}) => {
     }
 
     if (session) {
-        console.log(session)
             return (
-                <div className={styles.body}>
-                    <table className="table table-striped table-hover">
+                <div className={`${styles.body} table-responsive`}>
+                    <table className="table table-sm table-striped table-hover">
                         <thead>
                             <tr>
                             <th scope="col">Description</th>
@@ -51,7 +50,7 @@ const tips = ({session, allTips}) => {
                 </div>
             )
         } else {
-            return <div>You aren't allowed here!</div>
+            return <div className={styles.vh75}>You aren't allowed here!</div>
         }
     }
 

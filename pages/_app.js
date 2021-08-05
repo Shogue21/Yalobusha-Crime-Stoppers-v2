@@ -4,20 +4,11 @@ import Head from 'next/head'
 import Footer from '../components/Footer'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Provider } from 'next-auth/client'
-import { useSession } from 'next-auth/client'
-
-import dynamic from 'next/dynamic'
-
-
-
+import { motion, AnimatePresence } from "framer-motion"
 
 typeof window !== 'undefined'
-export default function MyApp({ Component, pageProps }) {
-  const [loading, session] = useSession();
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
+export default function MyApp({ Component, pageProps, router }) {
+  
   return <div>
   <Head> 
     <title>Yalobusha County Crime Stoppers</title>
@@ -28,9 +19,29 @@ export default function MyApp({ Component, pageProps }) {
   </Head>
   
   <Provider session={pageProps.session}>
+    <AnimatePresence>
+    <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" exit="pageExit" variants={{
+      pageInitial: {
+        opacity: 0,
+      },
+      pageAnimate: {
+        opacity: 1,
+        transition: {
+          duration: 2
+        }
+      },
+      pageExit: {
+        opacity: 0,
+        transition: {
+          duration: 0.6
+        }
+      }
+    }}>
     <Navbar />
      <Component {...pageProps} />
     <Footer />
+    </motion.div>
+    </AnimatePresence>
   </Provider>
 </div>
 }
