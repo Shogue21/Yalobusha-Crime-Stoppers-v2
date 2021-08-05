@@ -11,12 +11,14 @@
 }
 
 .graphs{
-  max-height: 300px!important;
-  max-width: 300px!important;
+  max-height: 1500px!important;
+  max-width: 500px!important;
+  padding: 1rem;
 }
 
 .parentContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
 }
