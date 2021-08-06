@@ -5,3 +5,11 @@
 .vh75 {
     height: 75vh;
 }
+
+.header {
+    white-space: nowrap;
+}
+
+.header:hover {
+    cursor: pointer;
+}
