@@ -11,9 +11,9 @@
 }
 
 .graphs{
-  max-height: 1500px!important;
-  max-width: 500px!important;
-  margin: 4rem;
+  height: 600px!important;
+  width: 600px!important;
+  margin: 2rem;
 }
 
 .parentContainer {

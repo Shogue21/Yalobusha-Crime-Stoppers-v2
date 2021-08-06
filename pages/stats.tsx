@@ -4,6 +4,7 @@ import styles from "../styles/stats.module.css";
 import React from "react";
 import { UncontrolledCarousel, Row, Col } from "reactstrap";
 import { Bar, Chart, Doughnut, Pie } from "react-chartjs-2";
+import { Legend } from "chart.js";
 
 const prisma = new PrismaClient();
 
@@ -474,6 +475,28 @@ export default class TipDataCharts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      // allTips: {
+      //   labels: ["Tips Submitted", "Tips Leading "]
+      //   datasets: [
+      //     {
+      //       data: [props.arsonTips, props.assaultTips, props.burglaryTips, props.childAbuseTips, props.childSexualImagesTips, props.civilIssueTips, props.computerCrimesTips, props.covid19Tips, props.criminalMischiefTips, props.criminalTrespassTips, props.disorderlyConductTips, props.dogBiteTips, props.elderAbuseTips, props.forgeryTips, props.harassmentTips, props.homicideTips, props.indecentExposureTips, props.missingPersonTips, props.motorVehicleOffenseTips, props.noiseComplaintTips, props.paroleViolationTips, props.policeInformationTips, props.publicPeaceOffenseTips, props.robberyTips, props.sexualAssaultTips, props.suspiciousActivityTips, props.terrorismTips, props.theftTips, props.underageDrinkingTips, props.vehicleTheftTips, props.wantedPersonTips, props.weaponsTips],
+      //       backgroundColor: ["#6F4242", "#8B1A1A", "#FF5333", "#5C4033", "#FF6600", "#F0A804", "#8B6508", "#FFE600", "#615E3F", "#EEE685", "#FFFF00", "#98A148", "#A2BC13", "#859C27", "#668014", "#3B5323", "#458B00", "#228B22", "#3D9140", "#006B54", "#48D1CC", "#50A6C2", "#36648B", "#007FFF", "#2F2F4F", "#3333FF", "#120A8F", "#551A8B", "#A020F0", "#91219E", "#8B4789", "#8E236B", "#DB9EA6"],
+      //       hoverBackgroundColor: ["#BC8F8F", "#BE2625", "#FF6347", "#D19275", "#FF9955", "#FCB514", "#CD950C", "#FBEC5D", "#8B864E", "#FFF68F", "#FFFF7E", "#CFD784", "#D1E231", "#D1E231", "#AADD00", "#78AB46", "#66CD00", "#32CD32", "#4BB74C", "#0FDDAF", "#90FEFB", "#ADD8E6", "#62B1F6", "#1E90FF", "#42426F", "#6666FF", "#5B59BA", "#7F00FF", "#BF5FFF", "#8F5E99", "#CD69C9", "#CC3299", "#FFAEB9"],
+      //     },
+      //   ],
+      // },
+      allArrest: {
+        labels: ["Arson Arrest", "Assault Arrest", "Burglary Arrest", "Child Abuse Arrest", "Child Sexual Images Arrest", "Civil Issue Arrest", "Computer Crimes Arrest", "COVID-19 Arrest", "Criminal Mischeif Arrest", "Criminal Trespass Arrest", "Disorderly Conduct Arrest", "Dog Bite Arrest", "Elder Abuse Arrest", "Forgery Arrest", "Harassments Arrest", "Homicide Arrest", "Indecent Exposure Arrest", "Missing Person Arrest", "Motor Vehicle Offense Arrest", "Noise Complaints Arrest", "Parole Violation Arrest", "Police Information Arrest", "Prostitution Arrest", "Public Peace Offenses Arrest", "Robbery Arrest", "Sexual Assault Arrest", "Suspicicous Activity Arrest", "Terrorism Arrest", "Theft Arrest", "Underage Drinking Arrest", "Vehicle Theft Arrest", "Wanted Person Arrest", "Weapon Arrest"],
+        datasets: [
+          {
+            data: [props.arsonArrest, props.assaultArrest, props.burglaryArrest, props.childAbuseArrest, props.childSexualImagesArrest, props.civilIssueArrest, props.computerCrimesArrest, props.covid19Arrest, props.criminalMischiefArrest, props.criminalTrespassArrest, props.disorderlyConductArrest, props.dogBiteArrest, props.elderAbuseArrest, props.forgeryArrest, props.harassmentArrest, props.homicideArrest, props.indecentExposureArrest, props.missingPersonArrest, props.motorVehicleOffenseArrest, props.noiseComplaintArrest, props.paroleViolationArrest, props.policeInformationArrest, props.publicPeaceOffenseArrest, props.robberyArrest, props.sexualAssaultArrest, props.suspiciousActivityArrest, props.terrorismArrest, props.theftArrest, props.underageDrinkingArrest, props.vehicleTheftArrest, props.wantedPersonArrest, props.weaponsArrest],
+            backgroundColor: ["#6F4242", "#8B1A1A", "#FF5333", "#5C4033", "#FF6600", "#F0A804", "#8B6508", "#FFE600", "#615E3F", "#EEE685", "#FFFF00", "#98A148", "#A2BC13", "#859C27", "#668014", "#3B5323", "#458B00", "#228B22", "#3D9140", "#006B54", "#48D1CC", "#50A6C2", "#36648B", "#007FFF", "#2F2F4F", "#3333FF", "#120A8F", "#551A8B", "#A020F0", "#91219E", "#8B4789", "#8E236B", "#DB9EA6"],
+            hoverBackgroundColor: ["#BC8F8F", "#BE2625", "#FF6347", "#D19275", "#FF9955", "#FCB514", "#CD950C", "#FBEC5D", "#8B864E", "#FFF68F", "#FFFF7E", "#CFD784", "#D1E231", "#D1E231", "#AADD00", "#78AB46", "#66CD00", "#32CD32", "#4BB74C", "#0FDDAF", "#90FEFB", "#ADD8E6", "#62B1F6", "#1E90FF", "#42426F", "#6666FF", "#5B59BA", "#7F00FF", "#BF5FFF", "#8F5E99", "#CD69C9", "#CC3299", "#FFAEB9"],
+          },
+        ]
+      },
+    
       allTips: {
         labels: ["Tips Submitted", "Tips Leading to Arrest"],
         datasets: [
@@ -481,418 +504,427 @@ export default class TipDataCharts extends React.Component {
             data: [props.totalTips, props.tipsWithArrest],
             backgroundColor: ["#168edf", "#FF0000"],
             hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+          }],
+        },
+        options: {
+          legend: {
+            maxHeight: 5,
+            display: false,
           },
-        ],
-      },
-      arsonTips: {
-        labels: ["Arson Tips ", " Arson Arrest"],
-        datasets: [
-          {
-            data: [props.arsonTips, props.arsonArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      assaultTips: {
-        labels: ["Assault Tips ", " Asssault Arrest"],
-        datasets: [
-          {
-            data: [props.assaultTips, props.assaultArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      burglaryTips: {
-        labels: ["Burglary Tips ", " Burglary Arrest"],
-        datasets: [
-          {
-            data: [props.burglaryTips, props.burglaryArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      childAbuseTips: {
-        labels: [
-          "Child Abuse Tips ",
-          "Child Abuse Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.childAbuseTips, props.childAbuseArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      childSexualImagesTips: {
-        labels: [
-          "Child Sexual Images Tips ",
-          "Child Sexual Images Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.childSexualImagesTips, props.childSexualImagesArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      civilIssueTips: {
-        labels: [
-          "Civil Issue Tips ",
-          "Civil Issue Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.civilIssueTips, props.civilIssueArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      computerCrimesTips: {
-        labels: [
-          "Computer Crimes Tips ",
-          "Computer Crimes Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.computerCrimesTips, props.computerCrimesArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      covid19Tips: {
-        labels: ["COVID-19 Tips ", "COVID-19 Arrest"],
-        datasets: [
-          {
-            data: [props.covid19Tips, props.covid19Arrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      criminalMischiefTips: {
-        labels: [
-          "Criminal Mischief Tips ",
-          "Criminal Mischief Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.criminalMischiefTips, props.criminalMischeifArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      criminalTrespassTips: {
-        labels: [
-          "Criminal Trespass Tips ",
-          "Criminal Trespass Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.criminalTrespassTips, props.criminalTrespassArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      disorderlyConductTips: {
-        labels: [
-          "Disorderly Conduct Tips ",
-          "Disorderly Conduct Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.disorderlyConductTips, props.disorderlyConductArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      dogBiteTips: {
-        labels: ["Dog Bite Tips ", "Dog Bite Arrest"],
-        datasets: [
-          {
-            data: [props.dogBiteTips, props.dogBiteArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      elderAbuseTips: {
-        labels: [
-          "Elder Abuse Tips ",
-          "Elder Abuse Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.elderAbuseTips, props.elderAbuseArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      forgeryTips: {
-        labels: ["Forgery Tips ", "Forgery Arrest"],
-        datasets: [
-          {
-            data: [props.forgeryTips, props.forgeryArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      harassmentTips: {
-        labels: [
-          "Harassment Tips ",
-          "Harassment Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.harassmentTips, props.harassmentArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      homicideTips: {
-        labels: ["Homicide Tips ", "Homicide Arrest"],
-        datasets: [
-          {
-            data: [props.homicideTips, props.homicideArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      indecentExposureTips: {
-        labels: [
-          "Indecent Exposure Tips ",
-          "Indecent Exposure Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.indecentExposureTips, props.indecentExposureArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      missingPersonTips: {
-        labels: [
-          "Missing Person Tips ",
-          "Missing Person Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.missingPersonTips, props.missinsPersonArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      motorVehicleOffenseTips: {
-        labels: [
-          "Motor Vehicle Offenses Tips ",
-          "Motor Vehicle Offesnses Arrest",
-        ],
-        datasets: [
-          {
-            data: [
-              props.motorVehicleOffenseTips,
-              props.motorVehicleOffenseArrest,
-            ],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      noiseComplaintTips: {
-        labels: [
-          "Noise Complaint Tips ",
-          "Noise Complaint Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.noiseComplaintTips, props.noiseComplaintArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      paroleViolationTips: {
-        labels: [
-          "Parole Violation Tips ",
-          "Parole Violation Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.paroleViolationTips, props.paroleViolationArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      policeInformationTips: {
-        labels: [
-          "Police Information Tips ",
-          "Police Information Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.policeInformationTips, props.policeInformationArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      prostitutionTips: {
-        labels: [
-          "Prostitution Tips ",
-          "Prostitution Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.prostitutionTips, props.prostitutionArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      publicPeaceOffenseTips: {
-        labels: [
-          "Public Peace Offense Tips ",
-          "Public Peace Offense Arrest",
-        ],
-        datasets: [
-          {
-            data: [
-              props.publicPeaceOffenseTips,
-              props.publicPeaceOffenseArrest,
-            ],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      robberyTips: {
-        labels: ["Robbery Tips ", "Robbery Arrest"],
-        datasets: [
-          {
-            data: [props.robberyTips, props.robberyArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      sexualAssaultTips: {
-        labels: [
-          "Sexual Assault Tips ",
-          "Sexual Asssault Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.sexualAssaultTips, props.sexualAssaultArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      suspiciousActivityTips: {
-        labels: [
-          "Suspicious Activity Tips ",
-          "Suspicious Activity Arrest",
-        ],
-        datasets: [
-          {
-            data: [
-              props.suspiciousActivityTips,
-              props.suspiciousActivityArrest,
-            ],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      terrorismTips: {
-        labels: [
-          "Terrorism Tips ",
-          "Terrorism Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.terrorismTips, props.terrorismArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      theftTips: {
-        labels: ["Theft Tips ", "Theft Arrest"],
-        datasets: [
-          {
-            data: [props.theftTips, props.theftArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      underageDrinkingTips: {
-        labels: [
-          "Underage Drinking Tips ",
-          "Underage Drinking Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.underageDrinkingTips, props.underageDrinkingArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      vehicleTheftTips: {
-        labels: [
-          "Vehicle Theft Tips ",
-          "Vehicle Theft Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.vehicleTheftTips, props.vehicleTheftArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      wantedPersonTips: {
-        labels: [
-          "Wanted Person Tips ",
-          "Wanted Person Arrest",
-        ],
-        datasets: [
-          {
-            data: [props.wantedPersonTips, props.wantedPersonArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-      weaponsTips: {
-        labels: ["Weapons Tips ", "Weapons Arrest"],
-        datasets: [
-          {
-            data: [props.weaponsTips, props.weaponsArrest],
-            backgroundColor: ["#36A2EB", "#FF0000"],
-            hoverBackgroundColor: ["#6abbf0", "#FF6384"],
-          },
-        ],
-      },
-    };
+        },
+        
+      }
+    
+    
+    //   arsonTips: {
+    //     labels: ["Arson Tips ", " Arson Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.arsonTips, props.arsonArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   assaultTips: {
+    //     labels: ["Assault Tips ", " Asssault Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.assaultTips, props.assaultArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   burglaryTips: {
+    //     labels: ["Burglary Tips ", " Burglary Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.burglaryTips, props.burglaryArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   childAbuseTips: {
+    //     labels: [
+    //       "Child Abuse Tips ",
+    //       "Child Abuse Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.childAbuseTips, props.childAbuseArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   childSexualImagesTips: {
+    //     labels: [
+    //       "Child Sexual Images Tips ",
+    //       "Child Sexual Images Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.childSexualImagesTips, props.childSexualImagesArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   civilIssueTips: {
+    //     labels: [
+    //       "Civil Issue Tips ",
+    //       "Civil Issue Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.civilIssueTips, props.civilIssueArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   computerCrimesTips: {
+    //     labels: [
+    //       "Computer Crimes Tips ",
+    //       "Computer Crimes Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.computerCrimesTips, props.computerCrimesArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   covid19Tips: {
+    //     labels: ["COVID-19 Tips ", "COVID-19 Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.covid19Tips, props.covid19Arrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   criminalMischiefTips: {
+    //     labels: [
+    //       "Criminal Mischief Tips ",
+    //       "Criminal Mischief Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.criminalMischiefTips, props.criminalMischeifArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   criminalTrespassTips: {
+    //     labels: [
+    //       "Criminal Trespass Tips ",
+    //       "Criminal Trespass Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.criminalTrespassTips, props.criminalTrespassArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   disorderlyConductTips: {
+    //     labels: [
+    //       "Disorderly Conduct Tips ",
+    //       "Disorderly Conduct Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.disorderlyConductTips, props.disorderlyConductArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   dogBiteTips: {
+    //     labels: ["Dog Bite Tips ", "Dog Bite Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.dogBiteTips, props.dogBiteArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   elderAbuseTips: {
+    //     labels: [
+    //       "Elder Abuse Tips ",
+    //       "Elder Abuse Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.elderAbuseTips, props.elderAbuseArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   forgeryTips: {
+    //     labels: ["Forgery Tips ", "Forgery Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.forgeryTips, props.forgeryArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   harassmentTips: {
+    //     labels: [
+    //       "Harassment Tips ",
+    //       "Harassment Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.harassmentTips, props.harassmentArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   homicideTips: {
+    //     labels: ["Homicide Tips ", "Homicide Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.homicideTips, props.homicideArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   indecentExposureTips: {
+    //     labels: [
+    //       "Indecent Exposure Tips ",
+    //       "Indecent Exposure Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.indecentExposureTips, props.indecentExposureArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   missingPersonTips: {
+    //     labels: [
+    //       "Missing Person Tips ",
+    //       "Missing Person Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.missingPersonTips, props.missinsPersonArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   motorVehicleOffenseTips: {
+    //     labels: [
+    //       "Motor Vehicle Offenses Tips ",
+    //       "Motor Vehicle Offesnses Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [
+    //           props.motorVehicleOffenseTips,
+    //           props.motorVehicleOffenseArrest,
+    //         ],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   noiseComplaintTips: {
+    //     labels: [
+    //       "Noise Complaint Tips ",
+    //       "Noise Complaint Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.noiseComplaintTips, props.noiseComplaintArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   paroleViolationTips: {
+    //     labels: [
+    //       "Parole Violation Tips ",
+    //       "Parole Violation Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.paroleViolationTips, props.paroleViolationArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   policeInformationTips: {
+    //     labels: [
+    //       "Police Information Tips ",
+    //       "Police Information Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.policeInformationTips, props.policeInformationArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   prostitutionTips: {
+    //     labels: [
+    //       "Prostitution Tips ",
+    //       "Prostitution Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.prostitutionTips, props.prostitutionArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   publicPeaceOffenseTips: {
+    //     labels: [
+    //       "Public Peace Offense Tips ",
+    //       "Public Peace Offense Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [
+    //           props.publicPeaceOffenseTips,
+    //           props.publicPeaceOffenseArrest,
+    //         ],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   robberyTips: {
+    //     labels: ["Robbery Tips ", "Robbery Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.robberyTips, props.robberyArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   sexualAssaultTips: {
+    //     labels: [
+    //       "Sexual Assault Tips ",
+    //       "Sexual Asssault Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.sexualAssaultTips, props.sexualAssaultArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   suspiciousActivityTips: {
+    //     labels: [
+    //       "Suspicious Activity Tips ",
+    //       "Suspicious Activity Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [
+    //           props.suspiciousActivityTips,
+    //           props.suspiciousActivityArrest,
+    //         ],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   terrorismTips: {
+    //     labels: [
+    //       "Terrorism Tips ",
+    //       "Terrorism Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.terrorismTips, props.terrorismArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   theftTips: {
+    //     labels: ["Theft Tips ", "Theft Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.theftTips, props.theftArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   underageDrinkingTips: {
+    //     labels: [
+    //       "Underage Drinking Tips ",
+    //       "Underage Drinking Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.underageDrinkingTips, props.underageDrinkingArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   vehicleTheftTips: {
+    //     labels: [
+    //       "Vehicle Theft Tips ",
+    //       "Vehicle Theft Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.vehicleTheftTips, props.vehicleTheftArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   wantedPersonTips: {
+    //     labels: [
+    //       "Wanted Person Tips ",
+    //       "Wanted Person Arrest",
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [props.wantedPersonTips, props.wantedPersonArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    //   weaponsTips: {
+    //     labels: ["Weapons Tips ", "Weapons Arrest"],
+    //     datasets: [
+    //       {
+    //         data: [props.weaponsTips, props.weaponsArrest],
+    //         backgroundColor: ["#36A2EB", "#FF0000"],
+    //         hoverBackgroundColor: ["#6abbf0", "#FF6384"],
+    //       },
+    //     ],
+    //   },
+    // };
   }
 
   // getInitialState() {
@@ -908,145 +940,152 @@ export default class TipDataCharts extends React.Component {
   render() {
     return (
       <div>
-
         <div className={styles.parentContainer}>
+          <div>
+          <Pie className={styles.graphs} data={this.state.allTips}/>
+          </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.allTips} />
+        <Pie className={styles.graphs} data={this.state.allArrest}/>
+        </div>
+        </div>
+        {/* <div className={styles.parentContainer}>
+        <div>
+          <Pie className={styles.graphs} data={this.state.allTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.arsonTips} />
+          <Pie className={styles.graphs} data={this.state.arsonTips} />
         </div>
         
         <div>
-          <Bar className={styles.graphs} data={this.state.assaultTips} />
+          <Pie className={styles.graphs} data={this.state.assaultTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.burglaryTips} />
+          <Pie className={styles.graphs} data={this.state.burglaryTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.childAbuseTips} />
+          <Pie className={styles.graphs} data={this.state.childAbuseTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.childSexualImagesTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.civilIssueTips} />
+          <Pie className={styles.graphs} data={this.state.civilIssueTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.computerCrimesTips} />
+          <Pie className={styles.graphs} data={this.state.computerCrimesTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.covid19Tips} />
+          <Pie className={styles.graphs} data={this.state.covid19Tips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.criminalMischiefTips}
           />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.criminalTrespassTips}
           />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.disorderlyConductTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.dogBiteTips} />
+          <Pie className={styles.graphs} data={this.state.dogBiteTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.elderAbuseTips} />
+          <Pie className={styles.graphs} data={this.state.elderAbuseTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.forgeryTips} />
+          <Pie className={styles.graphs} data={this.state.forgeryTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.harassmentTips} />
+          <Pie className={styles.graphs} data={this.state.harassmentTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.homicideTips} />
+          <Pie className={styles.graphs} data={this.state.homicideTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.indecentExposureTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.missingPersonTips} />
+          <Pie className={styles.graphs} data={this.state.missingPersonTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.motorVehicleOffenseTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.noiseComplaintTips} />
+          <Pie className={styles.graphs} data={this.state.noiseComplaintTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.paroleViolationTips}
           />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.policeInformationTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.prostitutionTips} />
+          <Pie className={styles.graphs} data={this.state.prostitutionTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.publicPeaceOffenseTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.robberyTips} />
+          <Pie className={styles.graphs} data={this.state.robberyTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.sexualAssaultTips} />
+          <Pie className={styles.graphs} data={this.state.sexualAssaultTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.suspiciousActivityTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.terrorismTips} />
+          <Pie className={styles.graphs} data={this.state.terrorismTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.theftTips} />
+          <Pie className={styles.graphs} data={this.state.theftTips} />
         </div>
         <div>
-          <Bar
+          <Pie
             className={styles.graphs}
             data={this.state.underageDrinkingTips}
           />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.vehicleTheftTips} />
+          <Pie className={styles.graphs} data={this.state.vehicleTheftTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.wantedPersonTips} />
+          <Pie className={styles.graphs} data={this.state.wantedPersonTips} />
         </div>
         <div>
-          <Bar className={styles.graphs} data={this.state.weaponsTips} />
+          <Pie className={styles.graphs} data={this.state.weaponsTips} />
         </div>
-        </div>
+        </div> */}
       </div>
     );
   }
