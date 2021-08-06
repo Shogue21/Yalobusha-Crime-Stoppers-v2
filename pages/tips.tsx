@@ -123,26 +123,21 @@ const tips = ({session, allTips}) => {
                         <thead>
                             <tr>
                             <th scope="col">Description</th>
-                            <th onClick={() => {
+                            <th className={styles.header} onClick={() => {
                                 allTips = sortTable('offenseType')
-                                console.log("offense")
-                                }} scope="col">Offense Type</th>
-                            <th onClick={() => {
+                                }} scope="col">Offense Type <span>&#8645;</span></th>
+                            <th className={styles.header} onClick={() => {
                                 allTips = sortTable('address')
-                                console.log("address")
-                                }} scope="col">Address</th>
-                            <th onClick={() => {
+                                }} scope="col">Address <span>&#8645;</span></th>
+                            <th className={styles.header} onClick={() => {
                                 allTips = sortTable('nearestIntersection')
-                                console.log("intersection")
-                                }} scope="col">Nearest Intersection</th>
-                            <th onClick={() => {
+                                }} scope="col">Nearest Intersection <span>&#8645;</span></th>
+                            <th className={styles.header} onClick={() => {
                                 allTips = sortTable('neighborhood')
-                                console.log("neighborhood")
-                                }} scope="col">Neighborhood</th>
-                            <th onClick={() => {
+                                }} scope="col">Neighborhood <span>&#8645;</span></th>
+                            <th className={styles.header} onClick={() => {
                                 allTips = sortTable('arrested')
-                                console.log("arrested")
-                                }} scope="col">Arrested?</th>
+                                }} scope="col">Arrested? <span>&#8645;</span></th>
                             </tr>
                         </thead>
                         <tbody>
