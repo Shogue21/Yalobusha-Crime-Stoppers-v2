@@ -154,12 +154,12 @@ export async function getServerSideProps() {
   });
   const elderAbuseTips = await prisma.tip.findMany({
     where: {
-      offenseType: "Elder Abuse / Neglect",
+      offenseType: "Elder Abuse",
     },
   });
   const elderAbuseArrest = await prisma.tip.findMany({
     where: {
-      offenseType: "Elder Abuse / Neglect",
+      offenseType: "Elder Abuse",
       arrested: true,
     },
   });
