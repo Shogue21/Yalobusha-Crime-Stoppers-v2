@@ -20,7 +20,7 @@ export const News = ({ articles }) => {
             <div className={styles.main}>
                 {articles.map((article, index) => (
                     <div key={index} className={styles.post}>
-                        <h1 className={styles.postH1} onClick={() => (window.location.href = article.url)}>{article.title}</h1>
+                        <h1 className={styles.postH1} onClick={() => (window.open(article.url))}>{article.title}</h1>
                         <p className={styles.postP}>{article.description}</p>
                         {!!article.urlToImage && <img src={article.urlToImage} />}
                     </div>
