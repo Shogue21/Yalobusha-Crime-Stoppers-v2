@@ -4,6 +4,9 @@ body{
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 700;
     margin: 0;
+    background-image: url(https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?size=626&ext=jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .content{
